@@ -1,0 +1,72 @@
+header {
+    text-align: center;
+    background-image: linear-gradient(to bottom, rgb(35, 99, 137),rgb(4, 34, 51));
+    padding: 1px 15px;
+}
+
+nav {
+    text-align: center;
+    padding: 15px;
+    background-color: rgb(4, 34, 51);
+    content: icon;
+}
+
+nav > a {
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav > a:hover {
+    background-color: white;
+    color: rgb(4, 34, 51);
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    color: white;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+p {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    max-width: 300px;
+    margin: auto;
+    padding: 10px;
+}
+
+body {
+    margin: 0%;
+    text-align: center;
+}
+
+main > p {
+    color: rgb(4, 34, 51);
+    max-width: 400px;
+}
+
+table {
+    border: solid;
+}
+
+.img-produto {
+    width: 150px;
+}
+
+footer {
+    text-align: center;
+    background-image: linear-gradient(to bottom, rgb(4, 34, 51), rgb(1, 8, 11));
+    padding: 5px 15px 15px 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.img-social-icons {
+    width: 50px;
+    margin: 5px;
+}

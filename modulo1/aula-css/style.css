@@ -1,0 +1,18 @@
+#titulo {
+    color: red;
+}
+
+#div-1 {
+    background-color: red;
+    display: inline;
+}
+
+.div-2 {
+    background-color: orange;
+    display: inherit;
+}
+
+.btn-bonito {
+    background-color: blue;
+    color: white;
+}
