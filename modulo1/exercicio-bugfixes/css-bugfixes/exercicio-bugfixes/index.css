@@ -23,6 +23,8 @@ input {
     border-top: none;
     border-left: none;
     border-right: none;
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, 0.847);
 }
 
 button:focus {
