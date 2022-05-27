@@ -25,18 +25,43 @@ nav > a:hover {
 
 h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 50px;
+    font-size: 65px;
     color: white;
-    margin-bottom: 0px;
+    margin-bottom: -10px;
     margin-top: 10px;
+}
+
+h2 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    color: rgb(4, 34, 51);
+}
+
+header > p {
+    font-size: 15px;
+    max-width: fit-content;
+    margin: auto;
+    padding: 10px;
+}
+
+main {
+    margin: auto;
+    padding: 10px;
+    position: center;
+    text-align: center;
+    width: fit-content;
+}
+
+main > p {
+    color: rgb(4, 34, 51);
+    margin: 10px auto;
+    font-size: 25px;
+    box-sizing: content-box;
 }
 
 p {
     color: rgb(255, 255, 255);
-    font-size: 15px;
-    max-width: 300px;
-    margin: auto;
-    padding: 10px;
 }
 
 body {
@@ -44,17 +69,103 @@ body {
     text-align: center;
 }
 
-main > p {
-    color: rgb(4, 34, 51);
-    max-width: 400px;
+table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 60%;
 }
 
-table {
-    border: solid;
+th {
+    background-color: rgb(6, 46, 69);
+    color: white;
+    max-width: 100px;
+    padding: 5px 10px;
+}
+
+td {
+    padding: 5px 15px;
+    border-bottom: 3px solid rgb(6, 46, 69);
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(4, 34, 51);
+}
+
+.preco {
+    font-size: xx-large;
 }
 
 .img-produto {
     width: 150px;
+    margin: 5px;
+}
+
+form {
+    margin: auto;
+    padding: 10px;
+    position: center;
+    text-align: left;
+    width: 50%;
+}
+
+form > label {
+    width: 100%;
+    font-weight: bold;
+    color: rgb(4, 34, 51);
+}
+
+form > input {
+    width: 100%;
+    padding: 12px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-color: rgb(4, 34, 51);
+}
+
+form > input:focus {
+    background-color: rgba(136, 151, 187, 0.607);
+}
+
+form > button {
+    border: none;
+    background-color: rgb(4, 34, 51);
+    color: white;
+    padding: 16px 32px;
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0 0 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font: bold;
+}
+
+form > button:hover {
+    background-color: rgb(34, 77, 104);
+}
+
+ul {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+   width: 10%;
+   margin: 10px;
+   padding: 50px 20px;
+   border-radius: 5px;
+   box-shadow: 2px 2px 7px 0 rgba(4, 34, 51, 0.487);
+   transition: all 0.3s ease-out;
+   list-style-type: none;
+   font-size: 20px;
+   font-weight: bold;
+   color: rgb(4, 34, 51);
+}
+
+li:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
 }
 
 footer {
