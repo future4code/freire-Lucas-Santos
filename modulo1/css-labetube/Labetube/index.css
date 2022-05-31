@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Quicksand', sans-serif;
+}
+
+:root {
+    --cor-1: #3D5A80;
+    --cor-2: #98C1D9;
+    --cor-3: #E0FBFC;
+    --cor-4: #EE6C4D;
+    --cor-5: #293241;
+}
+
+header {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    padding: 0 20px;
+
+    background-color: var(--cor-4);
+    color: var(--cor-3);
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.342);
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--cor-3);
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header input {
+    min-width: 150px;
+    max-width: 300px;
+    width: auto;
+    height: 35px;
+    padding: 5px 10px;
+
+    border-radius: 8px;
+    border: 0;
+
+    color: var(--cor-1);
+}
+
+header input::placeholder {
+    color: #EE6C4D;
+}
+
+header .material-symbols-rounded {
+    font-size: 35px;
+    margin: auto 5px;
+}
+
+section {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 20px;
+}
+
+section a {
+    text-decoration: none;
+    color: var(--cor-1);
+}
+
+section .home {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 25px;
+    column-gap: 15px;
+
+    color: var(--cor-1);
+}
+
+section .home .card {
+    height: 100%;
+    margin: auto;
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.418);
+
+    border: solid 3px var(--cor-1);
+    background-color: white;
+
+    text-align: center;
+}
+
+section .home video {
+    width: 100%;
+
+    border-radius: 5px 5px 0 0;
+}
+
+section .home h4 {
+    height: 50px;
+    padding-top: 5px;
+    align-self: center;
+}
+
+section .video-unico video {
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+
+    background-color: var(--cor-5);
+    color: var(--cor-3);
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.342);
+
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
