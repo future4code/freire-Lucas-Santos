@@ -76,8 +76,9 @@ section a {
 }
 
 section .home {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     row-gap: 25px;
     column-gap: 15px;
 
@@ -85,6 +86,7 @@ section .home {
 }
 
 section .home .card {
+    width: 300px;
     height: 100%;
     margin: auto;
     padding: 4px;
