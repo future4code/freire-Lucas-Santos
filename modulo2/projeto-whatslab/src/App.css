@@ -16,11 +16,14 @@
   box-sizing: border-box;
   font-family: 'Ubuntu', sans-serif;
 }
+
+body {
+  background-color: var(--cor-1);
+}
+
 .App {
   display: flex;
   flex-direction: column;
     
-  height: 100vh;
-
-  background-color: var(--cor-1);
+  height: 100%;
 }

@@ -6,6 +6,7 @@ import { ChatScreen } from './components/ChatScreen/ChatScreen';
 export const App = () => {
   return (
     <div className="App">
+      
       <ChatScreen />
     </div>
   );

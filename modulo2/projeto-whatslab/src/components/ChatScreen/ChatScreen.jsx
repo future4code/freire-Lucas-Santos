@@ -9,13 +9,14 @@ export const ChatScreen = () => {
 
     const [userName, setUserName] = useState('');
     const [message, setMessage] = useState('');
-    const [time, setTime] = useState('');
 
     /*Salva o nome do usuário e a mensagem digitada na lista de mensagens*/
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setMessages([...messages, { name: userName, message, time: getTime() }]);
-        setMessage('');
+    function handleSubmit(e) {
+        if (message.length > 0) {
+            e.preventDefault();
+            setMessages([...messages, { name: userName, message, time: getTime() }]);
+            setMessage('');
+        }
     }
 
     /*Função que recebe data e hora atual do sistema e retorna a data e hora formatada*/
