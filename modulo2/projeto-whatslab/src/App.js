@@ -1,25 +1,42 @@
-import ScreenOpen from './components/ScreenOpen/ScreenOpen'
-import UserLogin from './components/UserLogin/UserLogin'
+import React from 'react';
 import './App.css';
+import { useState } from 'react';
+import {InputBox} from './components/Input/InputBox';
+import {ChatList} from './components/Messages/Chat/ChatList';
+import {UserName} from './components/User/UserName';
 
-function App() {
-  const userName = "Lucas";
+export const App = () => {
+  const [user, setUser] = useState('');
+  const [list, setList] = useState([]);
 
-  const firstAcess = () => {
-    if (userName === "") {
-      return <UserLogin />
-    } else {
-      return (
-        <p>Usuário existe</p>
-      )
-    }
+  function saveNewMessage(message) {
+    let newList = [...list];
+    newList.push(message);
+    setList(newList);
+  }
+
+  function saveNewUser(user) {
+    setUser(user);
   }
 
   return (
     <div className="App">
-      <ScreenOpen firstAcess={userName}/>
+      <header>
+        <input
+          type="text"
+          placeholder='Digite o nome do usuário...'
+          value={user}
+          onChange={(e) => setUser(e.target.value)}
+        />
+      </header>
+
+      <section>
+        <ChatList list={list} user={user}/>
+      </section>
+
+      <footer>
+        <InputBox onAddMessage={saveNewMessage} />
+      </footer>
     </div>
   );
 }
-
-export default App;
