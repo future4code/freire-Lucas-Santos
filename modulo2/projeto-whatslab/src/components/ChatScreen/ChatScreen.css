@@ -1,0 +1,209 @@
+:root {
+    --cor-1: #252422;
+    --cor-2: #403D39;
+    --cor-3: #CCC5B9;
+    --cor-4: #FFFCF2;
+    --cor-5: #d35421;
+    --sem-cor: rgba(0, 0, 0, 0);
+    --sombra-cor: rgba(0, 0, 0, 0.5);
+}
+
+.Chat-Screen {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    flex-grow: 0;
+    flex-basis: auto;
+    align-items: center;
+    justify-content: center;
+  
+    position: fixed;
+    top: 0;
+  
+    padding: 2%;
+  
+    width: 100%;
+    height: 60px;
+  
+    background-color: var(--cor-2);
+  
+    box-shadow: 2px 2px 2px var(--sombra-cor);
+}
+
+header > input {
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    font-size: 20px;
+
+    border: none;
+
+    background-color: transparent;
+
+    color: var(--cor-5);
+}
+
+header> input:focus {
+    outline: none;
+    border: none;
+}
+
+/*--------------------------------------
+----------------------------------------
+--------------------------------------*/
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  
+    width: 100%;
+    height: fit-content;
+  
+    padding: 0 3%;
+    padding-top: 65px;
+    padding-bottom: 80px;
+}
+
+section > .chat-list {
+    width: 100%;
+    height: fit-content;
+}
+
+section > .chat-list > ul {
+    list-style-type: none;
+}
+
+section > .chat-list > ul > li {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    padding: 1% 0;
+}
+
+/*--------------------------------------
+----------------------------------------
+--------------------------------------*/
+
+footer {
+    display: flex;
+    flex-grow: 0;
+    flex-basis: auto;
+    align-items: center;
+    justify-content: center;
+  
+    position: fixed;
+    bottom: 0;
+  
+    padding: 3%;
+  
+    width: 100%;
+    height: 90px;
+  
+    background-color: var(--cor-2);
+  
+    box-shadow: 2px 2px 2px var(--sombra-cor);
+}
+
+footer > .input-box {
+    display: flex;
+    column-gap: 2%;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+}
+
+footer > .input-box > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 70px;
+
+    padding-right: 5px;
+    padding-left: 10px;
+
+    border: none;
+    border-radius: 12px;
+    outline: none;
+
+    background-color: var(--cor-3);
+}
+
+footer > .input-box > div > textarea {
+    width: 100%;
+    height: 55px;
+
+    padding-right: 5px;
+
+    border: none;
+    outline: none;
+
+    color: var(--cor-1);
+
+    font-size: 16px;
+    font-weight: 400;
+
+    background-color: transparent;
+
+    resize: none;
+}
+
+footer > .input-box > div > textarea::-webkit-scrollbar {
+    width: 7px;
+    overflow: hidden;
+}
+
+footer > .input-box > div > textarea::-webkit-scrollbar-thumb {
+    background-color: var(--cor-5);
+    border-radius: 5px;
+
+}
+
+footer > .input-box > div > textarea::-webkit-scrollbar-track {
+    background-color: var(--cor-1);
+    border-radius: 15px;
+}
+
+footer > .input-box > button {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+
+    flex-grow: 0;
+
+    padding: 1.5%;
+
+    background-color: var(--cor-5);
+
+    border-radius: 100%;
+    border: none 0;
+    outline: none;
+
+    transition: all 0.2s ease-in-out;
+}
+
+footer > .input-box > button:active {
+    background-color: #a14019;
+    transform: scale(0.9);
+}
+
+footer > .input-box > button > svg {
+    font-size: 30px;
+
+    color: var(--cor-4);
+}
