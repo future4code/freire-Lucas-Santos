@@ -13,9 +13,17 @@ export const ChatScreen = () => {
     /*Salva o nome do usuário e a mensagem digitada na lista de mensagens*/
     function handleSubmit(e) {
         if (message.length > 0) {
-            e.preventDefault();
-            setMessages([...messages, { name: userName, message, time: getTime() }]);
-            setMessage('');
+            if (userName.length > 0) {
+                e.preventDefault();
+                setMessages([...messages, { name: userName, message, time: getTime() }]);
+                setMessage('');
+            } else {
+                e.preventDefault();
+                setMessages([...messages, { name: "anônimo", message, time: getTime() }]);
+                setMessage('');
+            }
+        } else {
+            alert("Digite uma mensagem!");
         }
     }
 
