@@ -9,7 +9,7 @@ export const OpenedQuestion = (props) => {
         <div className="Question">
             <label htmlFor="">
                 <input 
-                    type="text"
+                    type={props.type}
                     placeholder={props.question}
                     value={userText}
                     onChange={(e) => setUserText(e.target.value)}

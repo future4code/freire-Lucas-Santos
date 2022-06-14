@@ -58,3 +58,32 @@ h3 {
     color: var(--color-2);
     padding: 0 60px;
 }
+
+button {
+    width: 280px;
+    height: 60px;
+  
+    margin-top: 15px;
+  
+    border: none;
+    border-radius: 10px;
+  
+    color: var(--color-1);
+    background-color: var(--color-2);
+  
+    font-weight: 600;
+    font-size: 25px;
+  
+    box-shadow: 1px 1px 5px var(--shadow-color);
+  
+    transition: all 0.4s;
+}
+  
+button:hover {
+    font-size: 28px;
+    background-color: var(--color-3);
+}
+  
+button:active {
+    transform: scale(0.9);
+}
