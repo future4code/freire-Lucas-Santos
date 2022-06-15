@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+  --color-1: #3D5A80; /*Bdazzled Blue*/
+  --color-2: #98C1D9; /*Dark Sky Blue*/
+  --color-3: #E0FBFC; /*Light Cyan*/
+  --color-4: #EE6C4D; /*Burnt Sienna*/
+  --color-5: #293241; /*Gunmetal*/
+
+  --shadow-color:rgba(0, 0, 0, 0.500);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  background-color: var(--color-2);
+
+  font-family: 'Dosis', sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  row-gap: 5px;
+}
+
+/***************************************
+****************************************
+***************************************/
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 70px;
+
+  padding: 0 20px;
+
+  border-bottom: solid var(--color-3);
+}
+
+header > h1 {
+  font-size: 30px;
+  font-weight: bold;
+
+  color: var(--color-3);
+}
+
+/***************************************
+****************************************
+***************************************/
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  bottom: 25px;    
+
+  width: fit-content;
+  height: fit-content;
+
+  padding: 10px;
+
+  background-color: var(--color-3);
+
+  border-radius: 100%;
+
+  box-shadow: 0px 0px 10px white;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.add-button:hover {
+  cursor: pointer;
+  background-color: #e5f9f9;
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px white;
+}
+
+.add-button:active {
+  transform: scale(0.95);
+}

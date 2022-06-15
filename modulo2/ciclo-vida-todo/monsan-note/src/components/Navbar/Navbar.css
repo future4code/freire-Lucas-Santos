@@ -1,0 +1,64 @@
+:root {
+    --color-1: #3D5A80; /*Bdazzled Blue*/
+    --color-2: #98C1D9; /*Dark Sky Blue*/
+    --color-3: #E0FBFC; /*Light Cyan*/
+    --color-4: #EE6C4D; /*Burnt Sienna*/
+    --color-5: #293241; /*Gunmetal*/
+  
+    --shadow-color:rgba(0, 0, 0, 0.500);
+}
+
+/******************************************
+*******************************************
+******************************************/
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 100vw;
+    height: 50px;
+
+    padding: 0 20px;
+
+    color: var(--color-3);
+
+    column-gap: 30px;
+}
+
+.nav-bar > label {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: var(--color-3);
+    background-color: transparent;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-bar > input {
+    display: none;
+}
+
+.nav-bar > #do:checked ~ .do-selected {
+    border-bottom: solid var(--color-3);
+    transform: scale(1.1);
+}
+
+.nav-bar > #doing:checked ~ .doing-selected {
+    border-bottom: solid var(--color-3);
+}
+
+.nav-bar > #done:checked ~ .done-selected {
+    border-bottom: solid var(--color-3);
+}
