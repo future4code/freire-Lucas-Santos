@@ -1,0 +1,132 @@
+:root {
+    --color-1: #3D5A80; /*Bdazzled Blue*/
+    --color-2: #98C1D9; /*Dark Sky Blue*/
+    --color-3: #E0FBFC; /*Light Cyan*/
+    --color-4: #EE6C4D; /*Burnt Sienna*/
+    --color-5: #293241; /*Gunmetal*/
+  
+    --shadow-color:rgba(0, 0, 0, 0.500);
+}
+
+/******************************************
+*******************************************
+******************************************/
+
+.do-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 10px 20px;
+
+    color: var(--color-3);
+}
+
+.do-list > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+    width: 100%;
+}
+
+.do-list > ul > li {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+
+    width: fit-content;
+    height: fit-content;
+    max-width: 320px;
+
+    padding: 10px 20px;
+
+    color: var(--color-2);
+    background-color: var(--color-3);
+
+    border-radius: 10px;
+}
+
+.do-list > ul > li > .task-text {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5px;
+
+    background-color: transparent;
+}
+
+.do-list > ul > li > .task-text > h3 {
+    color: var(--color-1);
+   background-color: transparent;
+}
+
+.do-list > ul > li > .task-text > p {
+    color: var(--color-5);
+    background-color: transparent;
+}
+
+.do-list > ul > li > .task-icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5px;
+
+    padding-top: 10px;
+
+    background-color: transparent; 
+}
+
+.do-list > ul > li > .task-icons > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+    border: solid var(--color-1);
+    border-radius: 10px;
+
+    background-color: transparent;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.do-list > ul > li > .task-icons > button:hover {
+    background-color: var(--color-1);
+}
+
+.do-list > ul > li > .task-icons > button:active {
+    transform: scale(0.95);
+}
+
+.do-list > ul > li > .task-icons > button:active > svg {
+    transform: scale(0.95);
+}
+
+.do-list > ul > li > .task-icons > button > svg {
+    width: 100%;
+    height: 100%;
+
+    fill: var(--color-1);
+    background-color: transparent;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.do-list > ul > li > .task-icons > button:hover > svg {
+    fill: var(--color-3);
+}
+
+/******************************************
+*******************************************
+******************************************/
+

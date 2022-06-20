@@ -1,0 +1,49 @@
+:root {
+    --color-1: #3D5A80; /*Bdazzled Blue*/
+    --color-2: #98C1D9; /*Dark Sky Blue*/
+    --color-3: #E0FBFC; /*Light Cyan*/
+    --color-4: #EE6C4D; /*Burnt Sienna*/
+    --color-5: #293241; /*Gunmetal*/
+  
+    --shadow-color:rgba(0, 0, 0, 0.500);
+}
+
+.add-new-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    background-color: transparent;
+}
+
+.add-new-task > div {
+    background-color: transparent;
+}
+
+.add-new-task > div > label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    height: fit-content;
+
+    background-color: transparent;
+}
+.add-new-task > div > label > svg {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    min-height: 70px;
+    max-width: 70px;
+    max-height: 70px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: var(--color-2);
+    background-color: transparent;
+}

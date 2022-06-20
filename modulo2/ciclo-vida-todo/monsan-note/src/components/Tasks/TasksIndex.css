@@ -1,0 +1,171 @@
+:root {
+    --color-1: #3D5A80; /*Bdazzled Blue*/
+    --color-2: #98C1D9; /*Dark Sky Blue*/
+    --color-3: #E0FBFC; /*Light Cyan*/
+    --color-4: #EE6C4D; /*Burnt Sienna*/
+    --color-5: #293241; /*Gunmetal*/
+  
+    --shadow-color:rgba(0, 0, 0, 0.500);
+}
+
+/******************************************
+*******************************************
+******************************************/
+
+.new-tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+
+    position: fixed;
+    top: 70px;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 10px 50px;
+}
+
+/******************************************
+*******************************************
+******************************************/
+
+.new-tasks > .text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+
+    width: 300px;
+}
+
+.new-tasks > .text-box > input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+
+    width: 100%;
+    height: 50px;
+
+    padding: 10px 20px;
+
+    font-weight: 600;
+    font-size: 20px;
+
+    color: var(--color-1);
+
+    outline: none;
+
+    border: none;
+    border-radius: 10px;
+    border: solid var(--color-1);
+
+    transition: all 0.2s ease-in-out;
+}
+
+.new-tasks > .text-box > input:focus {
+    transform: scale(1.1);
+}
+
+.new-tasks > .text-box > input::placeholder {
+    color: var(--color-3);
+}
+
+.new-tasks > .text-box > textarea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+
+    width: 100%;
+    height: 100px;
+
+    padding: 10px;
+
+    color: var(--color-1);
+
+    font-weight: 600;
+    font-size: 20px;
+
+    resize: none;
+
+    outline: none;
+
+    border: solid;
+    border-color: var(--color-1);
+    border-radius: 10px;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.new-tasks > .text-box > textarea:focus {
+    transform: scale(1.1);
+}
+
+.new-tasks > .text-box > textarea::placeholder {
+    color: var(--color-3);
+}
+
+/******************************************
+*******************************************
+******************************************/
+
+.new-tasks > select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+
+    width: 300px;
+    height: 50px;
+
+    padding: 10px 20px;
+
+    border: solid;
+    border-radius: 10px;
+    border-color: var(--color-1);
+
+    outline: none;
+
+    color: var(--color-1);
+
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.new-tasks > select:active {
+    border-color: var(--color-1);
+}
+
+.new-tasks > select > option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+
+    width: 100%;
+    height: 50px;
+
+    padding: 10px 20px;
+
+    border: solid;
+    border-radius: 10px;
+    border-color: var(--color-1);
+
+    color: var(--color-1);
+
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/******************************************
+*******************************************
+******************************************/
