@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+  --cor-1: #252422;
+  --cor-2: #403D39;
+  --cor-3: #CCC5B9;
+  --cor-4: #FFFCF2;
+  --cor-5: #d35421;
+  --sem-cor: rgba(0, 0, 0, 0);
+  --sombra-cor: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background-color: var(--cor-1);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+    
+  height: 100%;
+}
