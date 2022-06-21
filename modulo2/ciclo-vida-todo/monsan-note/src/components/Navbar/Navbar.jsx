@@ -1,4 +1,4 @@
-import React from "react";
+setimport React from "react";
 import './Navbar.css';
 
 export const Navbar = ({setSelected}) => {
