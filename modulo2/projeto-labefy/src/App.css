@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-0: #1B192B;
+    --color-1: #242038;
+    --color-2: #725AC1;
+    --color-3: #8D86C9;
+    --color-4: #CAC4CE;
+    --color-5: #F7ECE1;
+
+    --shadow-color: rgba(0, 0, 0, 0.500);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Dosis', sans-serif;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
+    text-align: center;
+
+    background-color: var(--color-1);
+}
+
+/**********/
+/* HEADER */
+/**********/
+header {
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 64px;
+
+    background-color: var(--color-0);
+}
+
+/**********/
+/* FOOTER */
+/**********/
+footer {
+    position: fixed;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 64px;
+
+    padding: 0 8px;
+
+    background-color: var(--color-0);
+}
+
+@media screen and (max-width: 480px) {
+    footer {
+        flex-direction: column;
+        height: 96px;
+    }
+}
+
+
+/******************************/
+button {
+    font-size: calc(10px + 2vmin);
+}
