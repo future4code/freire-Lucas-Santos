@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.App > .login-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+
+    width: 100%;
+    max-width: 360px;
+
+    height: 100%;
+    min-height: 320px;
+    max-height: 480px;
+
+    padding: 0 16px;
+    
+    border: none;
+    border-radius: 16px;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.500);
+}
+
+/****************/
+/*TELA DE BOTÕES*/
+/****************/
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+
+    width: 100%;
+    height: 90px;
+}
+
+.buttons > label {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    height: 50px;
+
+    padding: 16px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: #00bcd4;
+
+    border-radius: 24px;
+
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.500);
+
+    transition: all 0.3s;
+}
+
+.buttons > input {
+    display: none;
+}
+
+.buttons > input:checked + label {
+    background-color: #00bcd4;
+    color: #fff;
+    width: fit-content;
+    height: 64px;
+    padding: 24px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/**********/
+/*CADASTRO*/
+/**********/
+
+.tela-cadastrar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 260px;
+}
+
+.tela-cadastrar > input {
+    width: 100%;
+    height: fit-content;
+    max-width: 320px;
+
+    padding: 12px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    text-align: center;
+
+    color: #00bcd4;
+
+    border: none;
+    border-bottom: solid 4px #00bcd4;
+}
+
+.tela-cadastrar > button {
+    width: fit-content;
+    height: fit-content;
+
+    padding: 16px;
+    margin-top: 16px;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    color: white;
+    background-color: #00bcd4;
+
+    border: none;
+    border-radius: 8px;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.500);
+}
+
+/***********/
+/*TELA HOME*/
+/***********/
+
+.tela-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    width: 100%;
+    height: 100vh;
+}
+
+/**********/
+/*LOGIN*/
+/**********/
+
+.tela-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 260px;
+}
+
+.tela-login > input {
+    width: 100%;
+    height: fit-content;
+    max-width: 320px;
+
+    padding: 12px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    text-align: center;
+
+    color: #00bcd4;
+
+    outline: none;
+
+    border: none;
+    border-bottom: solid 4px #00bcd4;
+}
+
+.tela-login > button {
+    width: fit-content;
+    height: fit-content;
+
+    padding: 16px;
+    margin-top: 16px;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    color: white;
+    background-color: #00bcd4;
+
+    border: none;
+    border-radius: 8px;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.500);
+}
