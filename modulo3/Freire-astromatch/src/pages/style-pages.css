@@ -1,0 +1,249 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: calc(100% - var(--footer-size));
+
+    margin-top: -100vh;
+
+    background-color: var(--color-1);
+
+    overflow: hidden;
+
+    border: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition: var(--transition-2);
+}
+
+.home > .image-box {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    border: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+.home > .image-box > img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.home > .info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+
+    width: 100%;
+    height: fit-content;
+
+    padding: var(--padding-2);
+}
+
+.home > .info-box > strong {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: calc(var(--font-title) + 1vmin);
+
+    color: var(--color-3);
+}
+
+.home > .info-box > span {
+    width: 100%;
+    height: 100%;
+
+    font-size: calc(var(--font-text) + 1vmin);
+
+    color: var(--color-3);
+}
+
+.home > .null-profile {
+    position: fixed;
+    top: -100vh;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: var(--max-width);
+    height: 100%;
+
+    padding: 0 var(--padding-2);
+    padding-bottom: calc(var(--padding-2) + var(--footer-size));
+
+    text-align: center;
+
+    color: var(--color-1);
+
+    background-color: var(--color-3);
+
+    overflow: hidden;
+
+    transition: var(--transition-2);
+
+    border: solid;
+}
+
+.home > .null-profile > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap);
+
+    width: 100%;
+    height: 100%;
+    max-height: 480px;
+
+    overflow: hidden;
+}
+
+.home > .null-profile > svg {
+    width: 72px;
+    min-width: 72px;
+    height: 72px;
+    min-height: 72px;
+
+    padding: var(--padding-1);
+
+    fill: var(--color-2);
+
+    border: none;
+    border-radius: 100%;
+
+    box-shadow: var(--shadow);
+
+    transition: var(--transition-1);
+}
+
+.home > .null-profile > svg:active {
+    transform: scale(0.9);
+}
+
+/**************************************************/
+/*                 PAGE - Matches                 */
+/**************************************************/
+
+.matches {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+
+    width: 100%;
+    height: 100%;
+
+    padding: var(--padding-2);
+}
+
+.matches > div {
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: var(--max-width);
+    height: 48px;
+
+    padding: 0 var(--padding-2);
+
+    background-color: var(--color-3);
+
+    border: none;
+    border-bottom: solid var(--color-1);
+
+    box-shadow: var(--shadow);
+}
+
+.matches > div > h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    padding-top: var(--padding-1);
+}
+
+.matches > div > .icon-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 100%;
+}
+
+.matches > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+
+    width: 100%;
+
+    padding-top: 48px;
+}
+
+.matches > ul > li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap);
+
+    width: 100%;
+
+    padding: var(--padding-1) var(--padding-2);
+
+    background-color: var(--color-1);
+
+    border: none;
+    border-radius: 8px;
+}
+
+.matches > ul > li > div {
+    width: 64px;
+    height: 64px;
+
+    overflow: hidden;
+
+    border: none;
+    border-radius: 4px;
+}
+
+.matches > ul > li > div > img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.matches > ul > li > strong {
+    width: 100%;
+
+    padding-left: var(--padding-1);
+
+    font-size: var(--font-title);
+
+    color: var(--color-3);
+}
