@@ -13,9 +13,12 @@ import { Matches } from './pages/Matches'
 import { MatchUnmatch } from './components/buttons/MatchUnmatch'
 import { NavFooter } from './components/menu/NavFooter'
 
+/*Components - Modal*/
+import { NullProfile } from './components/modal/NullProfile'
+
 function App() {
     /*Armazena o nome da página atual*/
-    const [page, setPage] = useState('home')
+    const [page, setPage] = useState("home")
 
     /*Armazena o objeto com as informações de cada perfil (um de cada vez)*/
     const [profile, setProfile] = useState({})
@@ -63,29 +66,51 @@ function App() {
             })
         }
 
-        /*Carrega um novo perfil*/
         getProfile()
-
-        /*Carrega a lista de matches*/
         getMatchs()
     }, [triggerNewProfile])
 
+    useEffect((e) => {
+        const app = document.querySelector(".App")
+
+        if (page === "home") {
+            app.style.height = "100vh"
+        } else {
+            app.style.height = "100%"
+            app.style.minHeight = "100vh"
+        }
+    }, [page])
+
     return (
         <div className="App">
-            {page === 'home' && <Home profile={profile} showNullProfile={showNullProfile}/>}
-            {page === 'matchs' && <Matches matchs={matchs} />}
+            {page === "home" && !showNullProfile && 
+                <Home 
+                    profile={profile} 
+                    showButtons={showButtons}
+                />
+            }
+            {page === "matchs" && <Matches matchs={matchs} />}
 
-            <NavFooter page={page} setPage={setPage} />
-
-            <MatchUnmatch 
-                profile={profile} 
+            <NavFooter 
                 page={page} 
-                
-                triggerNewProfile={triggerNewProfile} 
-                setTriggerNewProfile={setTriggerNewProfile}
+                setPage={setPage} 
 
                 showButtons={showButtons}
+                showNullProfile={showNullProfile}            
             />
+
+            {page === "home" && 
+                <MatchUnmatch 
+                    profile={profile} 
+                    page={page} 
+                    triggerNewProfile={triggerNewProfile} 
+                    setTriggerNewProfile={setTriggerNewProfile} 
+                    showButtons={showButtons}
+                    setShowButtons={setShowButtons}
+                />
+            }
+
+            {showNullProfile && page === "home" && <NullProfile showNullProfile={showNullProfile}/>}
         </div>
     )
 }

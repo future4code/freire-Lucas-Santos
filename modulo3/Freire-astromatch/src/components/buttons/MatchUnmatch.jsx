@@ -2,73 +2,36 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./style-MatchUnmatch.css";
 
+/*Lottie*/
+import { Player } from '@lottiefiles/react-lottie-player';
+
 /*API*/
 import { headers, postChoice } from '../../api/infos'
 
 /*Icons*/
 import { RiHeart3Fill, RiCloseFill } from "react-icons/ri";
 
-export const MatchUnmatch = ({ profile, page, triggerNewProfile, setTriggerNewProfile, showButtons }) => {
+export const MatchUnmatch = ({ profile, page, triggerNewProfile, setTriggerNewProfile, showButtons, setShowButtons }) => {
+    /*Anima o aparecer dos botões e controla se eles estão visíveis ou não*/
     useEffect(() => {
-        const box = document.querySelector(".buttons-box");
-        const match = document.querySelector(".match");
-        const unmatch = document.querySelector(".unmatch");
+        const matchIcon = document.querySelector(".match-icon")
+        const unmatchIcon = document.querySelector(".unmatch-icon")
+        const lottie = document.querySelector(".lottie-player")
 
         if (showButtons) {
-            if (page === "home") {
-                box.style.display = "flex";
-
-                match.style.padding = "var(--padding-2) 0";
-                match.style.paddingLeft = "var(--padding-1)";
-                match.style.width = "64px";
-                match.style.height = "100%";
-                match.style.borderRadius = "var(--radius) 0 0 var(--radius)";
-
-                unmatch.style.padding = "var(--padding-2) 0";
-                unmatch.style.paddingRight = "var(--padding-1)";
-                unmatch.style.width = "64px";
-                unmatch.style.height = "100%";
-                unmatch.style.borderRadius = "0 var(--radius) var(--radius) 0";
-            } else {
-                box.style.display = "none";
-            }
-            
-        } else {
-            match.style.padding = "0";
-            match.style.width = "0";
-            match.style.height = "0";
-
-            unmatch.style.padding = "0";
-            unmatch.style.width = "0";
-            unmatch.style.height = "0";
+            matchIcon.style.transform = "translateX(0)"
+            unmatchIcon.style.transform = "translateX(0)"
+            lottie.style.opacity = "0"
+        } 
+        else if (!showButtons) {
+            matchIcon.style.transform = "translateX(110%)"
+            unmatchIcon.style.transform = "translateX(-110%)"
+            lottie.style.opacity = "1"
         }
-    }, [page,profile])
-
-    const buttonAnimation = (choice) => {
-        const match = document.querySelector(".match");
-        const unmatch = document.querySelector(".unmatch");
-
-        if (choice) {
-            match.style.width = "100%";
-            match.style.height = "150vh";
-            match.style.borderRadius = "0";
-
-            unmatch.style.width = "0";
-            unmatch.style.padding = "0";
-        } else {
-            unmatch.style.width = "100%";
-            unmatch.style.height = "150vh";
-            unmatch.style.borderRadius = "0";
-
-            match.style.width = "0";
-            match.style.padding = "0";
-        }
-    }
+    }, [showButtons])
 
     /*Envia a decisão de match ou não para a API*/
-    const handleMatch = async (id, choice) => {
-        buttonAnimation(choice)
-
+    const sendChoiceToAPI = async (id, choice) => {
         await axios.post(postChoice, {
             id,
             choice
@@ -80,11 +43,27 @@ export const MatchUnmatch = ({ profile, page, triggerNewProfile, setTriggerNewPr
             window.location.reload()
         })
     }
+
+    /*Anima os botões quando eles são clicados*/
+    const handleChoice = (choice) => {
+        setShowButtons(false)
+
+        sendChoiceToAPI(profile.id, choice)
+    }
     
     return (
         <div className="buttons-box">
-            <RiCloseFill className="unmatch" onClick={() => handleMatch(profile.id, false)}/>
-            <RiHeart3Fill className="match" onClick={() => handleMatch(profile.id, true)}/>
-        </div>
+            <RiCloseFill className="unmatch-icon" onClick={() => handleChoice(false)}/>
+
+            <Player
+                className="lottie-player"
+                autoplay={true}
+                loop={true}
+                src="https://assets6.lottiefiles.com/packages/lf20_bzibm35c.json"
+                style={{ height: "50vh", transition: "all 0.4s" }}
+            />
+
+            <RiHeart3Fill className="match-icon" onClick={() => handleChoice(true)}/>      
+        </div>            
     )
 }
