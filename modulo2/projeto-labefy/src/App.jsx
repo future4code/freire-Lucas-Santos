@@ -3,8 +3,6 @@ import logo from './logo.svg'
 import './App.css'
 
 /*Components*/
-import { Menu } from './components/Footer/IconMenu/Menu'
-import { Player } from './components/Footer/MusicPlayer/Player'
 
 function App() {
     
@@ -16,25 +14,7 @@ function App() {
 
     return (
         <div className="App">
-            <header>
-
-            </header>
-
-            <main>
-                
-            </main>
-
-            <footer>
-                <Player 
-                    playing={playing}
-                    setPlaying={setPlaying}
-                />
-
-                <Menu 
-                    selected={selected}
-                    setSelected={setSelected}
-                />
-            </footer>
+            
         </div>
     )
 }
