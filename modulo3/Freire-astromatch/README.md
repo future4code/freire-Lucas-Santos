@@ -5,9 +5,9 @@ O projeto consiste em um app de relacionamento, semelhante ao Tinder.
 Nele, o usuário recebe uma foto, nome e bio de um outro usuário e decide se tem interesse (clicando no botão com o coração) ou se não tem interesse (clicando no botão com o X).
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Black Chocolate | (https://via.placeholder.com/10/1E1B18?text=+) #1E1B18 |
-| Cerise | (https://via.placeholder.com/10/D8315B?text=+) #D8315B |
-| Magnolia | (https://via.placeholder.com/10/FCF7FF?text=+) #FCF7FF |
+| Black Chocolate | [#1E1B18] (https://via.placeholder.com/10/1E1B18?text=+) #1E1B18 |
+| Cerise | ![#D8315B] (https://via.placeholder.com/10/D8315B?text=+) #D8315B |
+| Magnolia | ![#FCF7FF] (https://via.placeholder.com/10/FCF7FF?text=+) #FCF7FF |
 
 
 ## Demo
