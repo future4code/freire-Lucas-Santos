@@ -1,0 +1,92 @@
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+
+    width: 100%;
+    height: 64px;
+
+    user-select: none;
+}
+
+.menu > input {
+    display: none;
+}
+
+.menu > label {
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    height: 64px;
+
+    padding: 8px;
+    
+    font-size: 28px;
+
+    border-radius: 100%;
+
+    background-color: var(--color-0);
+    color: var(--color-5);
+
+    transition: all 0.4s;
+}
+
+/*Esconde os ícones preenchidos*/
+.home-fill, .search-fill, .music-fill, .user-fill {
+    display: none;
+}
+
+/*Mostra o ícone preenchido quando o input estiver selecionado*/
+#home-input:checked ~ label > .home-fill,
+#search-input:checked ~ label > .search-fill,
+#music-input:checked ~ label > .music-fill,
+#user-input:checked ~ label > .user-fill {
+    display: flex;
+}
+
+/*Esconde o ícone em linha quando o input estiver selecionado*/
+#home-input:checked ~ label > .home-line,
+#search-input:checked ~ label > .search-line,
+#music-input:checked ~ label > .music-line,
+#user-input:checked ~ label > .user-line {
+    display: none;
+}
+
+/*Efeito quando escolhe os ícones*/
+#home-input:checked + label,
+#search-input:checked + label,
+#music-input:checked + label,
+#user-input:checked + label {
+    margin-bottom: 24px;
+    font-size: 36px;
+}
+
+@media screen and (max-width: 480px) {
+    .menu {
+        position: absolute;
+        bottom: 0;
+
+        height: 56px;
+
+        justify-content: space-between;
+    }
+
+    .menu > label {
+        background-color: transparent;
+    }
+
+    #home-input:checked + label,
+    #search-input:checked + label,
+    #music-input:checked + label,
+    #user-input:checked + label {
+        margin-bottom: 0;
+        font-size: 36px;
+    }
+}
