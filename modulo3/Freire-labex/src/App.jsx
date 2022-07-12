@@ -8,11 +8,13 @@ function App() {
     <div className="App">
       <div className="Background-box">
         <video 
-          autoPlay loop 
-          src="https://firebasestorage.googleapis.com/v0/b/monsan-dev.appspot.com/o/LabeX%2Fbackground.webm?alt=media&token=f0348065-3d40-4521-8bc6-696dd5c14e07" 
+          autoPlay loop muted playsInline 
+          src="https://firebasestorage.googleapis.com/v0/b/monsan-dev.appspot.com/o/LabeX%2Fbackground.webm?alt=media&token=f0348065-3d40-4521-8bc6-696dd5c14e07"
           type="video/webm" 
         />
-      </div>      
+      </div>
+
+      <HomePage />     
     </div>
   )
 }

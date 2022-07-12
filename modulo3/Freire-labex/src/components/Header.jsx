@@ -1,12 +1,17 @@
-import "../styles/Reset_Default.css";
+import "../styles/Header.css";
 
 //Images
 import logo from "../images/logo.svg";
 
 export const Header = () => {
   return (
-    <div>
+    <div className="Header">
+      <div className="logo-box">
+        <img className="logo" src={logo} alt="Ícone do logo do site" />
+        <a href="#">Quem somos?</a>
+      </div>
 
+      <a href="#" >Olá, visitante!</a>   
     </div>
   )
 }

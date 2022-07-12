@@ -1,0 +1,63 @@
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  padding: var(--padding);
+}
+/*************************************/
+.HomePage > .text-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: var(--width);
+  min-height: 320px;
+  margin-top: calc(var(--margin) * 8);
+}
+.HomePage > .text-box > .top {
+  font-size: calc(var(--title) * 2.75);
+  text-shadow: var(--shadow);
+}
+.HomePage > .text-box > .middle {
+  margin: calc(var(--margin) * -3.5) 0;
+  font-size: calc(var(--title) * 4);
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-0);
+}
+.HomePage > .text-box > .bottom {
+  font-size: calc(var(--title) * 5);
+  text-shadow: var(--shadow);
+}
+/*************************************/
+.HomePage > .button-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--gap) * 8);
+  width: var(--width);
+  margin-top: calc(var(--margin) * 2);
+}
+.HomePage > .button-box > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: calc(var(--padding) * 0.5);
+  border: var(--border);
+  border-radius: calc(var(--radius) * 2);
+}
+
+.HomePage > .button-box > a > .top {
+  font-size: var(--title);
+  text-shadow: var(--shadow);
+}
+
+.HomePage > .button-box > a > .bottom {
+  margin-top: calc(var(--margin) * -1.5);
+  font-size: calc(var(--title) * 1.5);
+  text-shadow: var(--shadow);
+}

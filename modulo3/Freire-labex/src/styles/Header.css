@@ -1,0 +1,35 @@
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 72px;
+  padding: var(--padding) 0;
+  border-bottom: var(--border);
+}
+
+.Header > .logo-box {
+  display: flex;
+  gap: calc(var(--gap) * 5);
+  width: 100%;
+  height: 100%;
+}
+
+.Header > div > .logo {
+  cursor: pointer;
+  height: 100%;
+}
+
+.Header > div > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-size: var(--title);
+}
+
+.Header > a {
+  width: 100%;
+  font-size: var(--title);
+  text-align: end;
+}
