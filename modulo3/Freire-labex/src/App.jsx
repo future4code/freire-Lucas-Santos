@@ -1,7 +1,7 @@
 import "./styles/App.css";
 
-//Pages
-import { HomePage } from './pages/HomePage.jsx';
+//Routes
+import { RouterFlow } from "./router/RouterFlow";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         />
       </div>
 
-      <HomePage />     
+      <RouterFlow />
     </div>
   )
 }

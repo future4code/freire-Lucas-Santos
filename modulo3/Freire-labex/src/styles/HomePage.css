@@ -16,9 +16,10 @@
   width: var(--width);
   min-height: 320px;
   margin-top: calc(var(--margin) * 8);
+  padding: 0 var(--padding);
 }
 .HomePage > .text-box > .top {
-  font-size: calc(var(--title) * 2.75);
+  font-size: calc(var(--title) * 2.7);
   text-shadow: var(--shadow);
 }
 .HomePage > .text-box > .middle {
@@ -28,7 +29,7 @@
   -webkit-text-stroke: 2px var(--color-0);
 }
 .HomePage > .text-box > .bottom {
-  font-size: calc(var(--title) * 5);
+  font-size: calc(var(--title) * 4.9);
   text-shadow: var(--shadow);
 }
 /*************************************/
@@ -36,9 +37,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: calc(var(--gap) * 8);
+  gap: calc(var(--gap) * 4);
   width: var(--width);
   margin-top: calc(var(--margin) * 2);
+  padding: 0 var(--padding);
 }
 .HomePage > .button-box > a {
   display: flex;

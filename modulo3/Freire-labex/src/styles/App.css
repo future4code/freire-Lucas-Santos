@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --color-0: #fafafa;
-  --color-1: #2b2d42;
-  --color-2: #702b9e;
-  --color-3: #b429f9;
-  --color-4: #855df7;
-  --color-5: #5591f5;
-  --color-6: #26c5f3;
+  --color-w: #F8F9FA; /*Cultured*/
+  --color-b: #2b2d42; /*Space Cadet*/
+  --color-1: #7209B7; /*Purple*/
+  --color-2: #3A0CA3; /*Trypan Blue*/
+  --color-3: #4361EE; /*Ultramatine Blue*/
+  --color-4: #4CC9F0; /*Vivid Sky Blue*/
+  --color-5: #F72585; /*Flicker Pink*/
 }
 
 @media (max-width: 480px) {

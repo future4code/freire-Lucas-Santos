@@ -11,25 +11,20 @@
 .Header > .logo-box {
   display: flex;
   gap: calc(var(--gap) * 5);
-  width: 100%;
+  width: fit-content;
   height: 100%;
 }
 
-.Header > div > .logo {
+.Header > .logo-box > .logo {
   cursor: pointer;
   height: 100%;
 }
 
-.Header > div > a {
+.Header a {
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  font-size: var(--title);
-}
-
-.Header > a {
-  width: 100%;
   font-size: var(--title);
   text-align: end;
 }

@@ -11,7 +11,7 @@ export const Header = () => {
         <a href="#">Quem somos?</a>
       </div>
 
-      <a href="#" >Olá, visitante!</a>   
+      <a href="#" >Olá, viajante!</a>   
     </div>
   )
 }
