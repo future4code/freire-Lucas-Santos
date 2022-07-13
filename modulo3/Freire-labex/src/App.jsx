@@ -3,6 +3,9 @@ import "./styles/App.css";
 //Routes
 import { RouterFlow } from "./router/RouterFlow";
 
+//Components
+import { Header } from "./components/Header";
+
 function App() {
   return (
     <div className="App">

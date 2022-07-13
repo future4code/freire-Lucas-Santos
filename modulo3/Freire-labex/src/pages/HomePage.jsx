@@ -1,13 +1,16 @@
 import "../styles/HomePage.css";
 
-//Components
-import { Header } from "../components/Header.jsx";
+//Router
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
+  const navigate = useNavigate();
+  const goTo = (path) => {
+    navigate(path);
+  }
+
   return (
     <div className="HomePage">
-      <Header />
-
       <div className="text-box">
         <strong className="top">O UNIVERSO ESTÁ</strong>
         <strong className="middle">ESPERANDO</strong>
@@ -15,15 +18,15 @@ export const HomePage = () => {
       </div>
 
       <div className="button-box">
-        <a href="#">
+        <button onClick={() => goTo("/login")}>
           <strong className="top">FAZER</strong>
           <strong className="bottom">LOGIN</strong>
-        </a>
+        </button>
       
-        <a href="#">
+        <button onClick={() => goTo("/list")}>
           <strong className="top">LISTA DE</strong>
           <strong className="bottom">VIAGENS</strong>
-        </a>
+        </button>
       </div>
     </div>
   )

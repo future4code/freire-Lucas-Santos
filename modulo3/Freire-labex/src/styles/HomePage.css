@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   min-height: 100vh;
@@ -15,7 +16,6 @@
   justify-content: flex-end;
   width: var(--width);
   min-height: 320px;
-  margin-top: calc(var(--margin) * 8);
   padding: 0 var(--padding);
 }
 .HomePage > .text-box > .top {
@@ -26,7 +26,7 @@
   margin: calc(var(--margin) * -3.5) 0;
   font-size: calc(var(--title) * 4);
   color: transparent;
-  -webkit-text-stroke: 2px var(--color-0);
+  -webkit-text-stroke: 2px var(--color-w);
 }
 .HomePage > .text-box > .bottom {
   font-size: calc(var(--title) * 4.9);
@@ -42,23 +42,24 @@
   margin-top: calc(var(--margin) * 2);
   padding: 0 var(--padding);
 }
-.HomePage > .button-box > a {
+.HomePage > .button-box > button {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   padding: calc(var(--padding) * 0.5);
+  background-color: transparent;
   border: var(--border);
   border-radius: calc(var(--radius) * 2);
 }
 
-.HomePage > .button-box > a > .top {
+.HomePage > .button-box > button > .top {
   font-size: var(--title);
   text-shadow: var(--shadow);
 }
 
-.HomePage > .button-box > a > .bottom {
+.HomePage > .button-box > button > .bottom {
   margin-top: calc(var(--margin) * -1.5);
   font-size: calc(var(--title) * 1.5);
   text-shadow: var(--shadow);
