@@ -8,28 +8,27 @@
   --color-3: #4361EE; /*Ultramatine Blue*/
   --color-4: #4CC9F0; /*Vivid Sky Blue*/
   --color-5: #F72585; /*Flicker Pink*/
-}
 
+  --max-width: 48em;
+  --min-height: 2.5em;
+  --margin: 0.5rem;
+  --padding: 1em;
+  --gap: 0.5em;
+  --title: 2.5rem;
+  --text: 1rem;
+  --radius: 0.5em;
+  --border: solid 0.175em var(--color-w);
+  --shadow: 0 0 0.5em var(--color-b);
+  --transition: all 0.4s ease-in-out;
+}
 @media (max-width: 480px) {
   :root {
     appearance: none;
   }
 }
-
 @media (min-width: 480px) {
-  :root {
-    --width: 30rem; /*480px*/
-    --margin: 0.5rem; /*8px*/
-    --padding: 0.5rem; /*8px*/
-    --gap: 0.5rem; /*8px*/
-    --title: 1.5rem; /*24px*/
-    --text: 0.75rem; /*12px*/
-    --radius: 0.5rem; /*8px*/
-    --border: solid 0.15rem var(--color-w);
-    --shadow: 0 0 0.5rem var(--color-b);
-  }
+  
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -37,24 +36,56 @@
   font-family: 'Rajdhani', sans-serif;
   color: var(--color-w);
 }
-
 a {
+  cursor: pointer;
   font-weight: bold;
   text-decoration: none;
 }
-
 button {
   cursor: pointer;
   outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.8em;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--radius);
 }
-
+input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--min-height);
+  text-align: center;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: var(--border);
+  transition: var(--transition);
+}
+input::placeholder {
+  color: var(--color-w);
+}
+input:focus {
+  border: solid 0.175em var(--color-1);
+  border-radius: var(--radius);
+}
+/********************************************/
+html {
+  font-size: 62.5%;
+}
+body {
+  background: var(--color-b);
+}
+/********************************************/
 .App {
   width: 100%;
   height: 100%;
   min-height: 100vh;
   text-align: center;
 }
-
 .Background-box {
   z-index: -1;
   position: fixed;
@@ -64,7 +95,6 @@ button {
   height: 100%;
   overflow: hidden;
 }
-
 .Background-box > video {
   width: 100%;
   height: 100%;

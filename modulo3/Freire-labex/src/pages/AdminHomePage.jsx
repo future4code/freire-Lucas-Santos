@@ -1,4 +1,4 @@
-export const AdminPage = () => {
+export const AdminHomePage = () => {
   return (
     <div>
       Estou na AdminPage!
