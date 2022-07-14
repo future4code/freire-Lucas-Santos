@@ -1,0 +1,54 @@
+:root {
+    --color-1: #1E1B18;
+    --color-2: #D8315B;
+    --color-3: #FCF7FF;
+
+    --font-title: 16px;
+    --font-text: 12px;
+
+    --max-width: 640px;
+
+    --padding: 8px;
+
+    --footer-size: 72px;
+
+    --gap: 8px;
+
+    --radius: 32px;
+
+    --shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+
+    --transition: 0.4s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+    width: 100%;
+    max-width: var(--max-width);
+    height: 100vh;
+    margin: 0 auto;
+    padding-bottom: var(--footer-size) ;
+    background-color: var(--color-3);
+    box-shadow: var(--shadow);
+}

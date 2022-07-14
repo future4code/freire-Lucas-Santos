@@ -1,0 +1,34 @@
+.buttons-box {
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--max-width);
+    height: 100%;
+    overflow: hidden;
+}
+
+.buttons-box > svg {
+    width: 100px;
+    height: 96px;
+    padding: var(--padding);
+    box-shadow: var(--shadow);
+    transition: all var(--transition) ease-in-out;
+}
+
+.buttons-box > .unmatch-icon {
+    color: var(--color-2);
+    background-color: var(--color-3);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    transform: translateX(-110%);
+}
+
+.buttons-box > .match-icon {
+    color: var(--color-3);
+    background-color: var(--color-2);
+    border-radius: var(--radius) 0 0 var(--radius);
+    transform: translate(110%);
+}
