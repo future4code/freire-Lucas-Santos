@@ -1,17 +1,15 @@
-import './App.css';
-import styled from 'styled-components';
+import { DivFullPage } from "./components/GlobalStyledComps";
 import { RouterFlow } from "./router/RouterFlow";
-import { BoxFullPage } from "./components/StyledComps";
 import { Background } from "./components/Background";
 import { Header } from "./components/Header";
 
 function App() {
   return (
-    <BoxFullPage>
+    <DivFullPage minH="100%">
       <Background />
       <Header />
       <RouterFlow />
-    </BoxFullPage>
+    </DivFullPage>
   );
 }
 export default App;

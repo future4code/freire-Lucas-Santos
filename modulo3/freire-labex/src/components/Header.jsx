@@ -2,17 +2,23 @@ import styled from "styled-components";
 import logo from "../images/logo.svg";
 
 const Nav = styled.nav`
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 98%;
+  width: 100%;
   height: 4em;
   padding: 0.5em;
-  border-bottom: solid 0.15em #EBEBEB;
+  opacity: 0;
+  background-color: rgba(17, 21, 29, 0.5);
+  backdrop-filter: blur(0.75em);
+  border-bottom: solid 0.15em var(--color-1b);
+  box-shadow: var(--shadow);
+  animation: fadeIn 1s ease-in-out forwards;
+  @keyframes fadeIn {to {opacity: 1;}}
   div {
     display: flex;
     align-items: center;
@@ -21,6 +27,7 @@ const Nav = styled.nav`
     width: fit-content;
     height: 100%;
     img {
+      cursor: pointer;
       height: 100%;
     }
     a {
@@ -29,7 +36,7 @@ const Nav = styled.nav`
       justify-content: center;
       width: fit-content;
       height: 100%;
-      color: #EBEBEB;
+      color: var(--color-w);
       font-size: 1.4rem;
       font-weight: bold;
       text-decoration: none;
@@ -41,7 +48,7 @@ export const Header = () => {
     <Nav>
       <div>
         <img src={logo} alt="logo" />
-        <a>QUEM SOMOS?</a>
+        <a href="/admin">QUEM SOMOS?</a>
       </div>
       <div>
         <a>Olá, viajante!</a>

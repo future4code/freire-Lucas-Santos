@@ -1,10 +1,17 @@
-/*
-#6F4A8E Royal Purple
-#221F3B Space Cadet
-#050505 Rich Black FOGRA 393
-#EBEBEB Platinum
-*/
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+:root {
+  --color-1a: #663CFF;
+  --color-1b: #8262FA;
+  --color-2a: #2D3343;
+  --color-2b: #1D2431;
+  --color-yes: #96B828;
+  --color-no: #D53F49;
+  --color-b: #11151D;
+  --color-w: #FFFFFF;
+  --header-h: 4em;
+  --radius: 0.5em;
+  --shadow: 0 0 0.5rem rgba(0, 0, 0, 0.75);
+}
 * {
   margin: 0;
   padding: 0;
@@ -22,4 +29,13 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+button, a {
+  cursor: pointer;
+}
+b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
