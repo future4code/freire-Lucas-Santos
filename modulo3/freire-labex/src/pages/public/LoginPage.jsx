@@ -43,7 +43,7 @@ export const LoginPage = () => {
   }, [])
 
   return (
-    showPage && (
+    showPage ? (
       <DivFullPage pad="0">
         <Grayout/>
         <Div pad="2em 0 0.25em 0" bg="var(--color-2a)">
@@ -62,8 +62,9 @@ export const LoginPage = () => {
           </Form>
           {modal.trigger && <ModalNotify modal={modal} setModal={setModal} />}
         </Div>
+        {loading && <Loading />}
       </DivFullPage>
-    ) || (
+    ) : (
       <Loading />
     )
   )
