@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToCreateTrip, goToHome } from "../routers/RouterFlow";
+import { Loading } from "./Loading";
 
 const Nav = styled.nav`
-  z-index: 3;
+  z-index: 1;
   position: fixed;
   top: 0;
   display: flex;
@@ -47,16 +49,20 @@ const Nav = styled.nav`
 `
 export const Header = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const logout = () => {
-    localStorage.removeItem("token");
-    goToHome(navigate);
+    setLoading(true);
+    setTimeout(() => {
+      localStorage.removeItem("token");
+      goToHome(navigate);
+    }, 1000);
   }
 
   return (
     <Nav>
       <div>
-        <img src={logo} alt="logo" />
+        <img onClick={() => goToHome(navigate)} src={logo} alt="logo" />
       </div>
       
       {window.localStorage.getItem("token") &&
@@ -70,6 +76,7 @@ export const Header = () => {
           <a onClick={() => logout()}>LOGOUT</a>
         </div>
       }
+      {loading && <Loading />}
     </Nav>
   )
 }

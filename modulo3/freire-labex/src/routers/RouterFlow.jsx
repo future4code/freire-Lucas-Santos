@@ -12,7 +12,6 @@ import { ErrorPage } from "../pages/public/ErrorPage";
 export const RouterFlow = () => {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="login" element={<LoginPage />} />

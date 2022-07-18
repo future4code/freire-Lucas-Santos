@@ -5,10 +5,12 @@ import { useState, useEffect } from "react";
 import { Grayout, DivFullPage, Div, ButtonFill, TextM, TextG, Input, Br, Form } from "../../components/GlobalStyledComps";
 import { ModalNotify } from "../../components/ModalNotify";
 import { useForm } from "../../hooks/useForm";
+import { Loading } from "../../components/Loading";
 
 export const LoginPage = () => {
   const navigate = useNavigate()
 
+  const [loading, setLoading] = useState(false);
   const [showPage, setShowPage] = useState(false)
   const [ userForm, handleChange] = useForm({email: "", password: ""})
   const [modal, setModal] = useState({trigger: false, type: "", title: "", text: ""})
@@ -17,10 +19,12 @@ export const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     await axios.post(UrlPostLogin, userForm, Header )
     .then(response => {
       localStorage.setItem("token", response.data.token);
       setModal({trigger: true, type: "success", title: "Login autorizado!", text: "Entrando no foguete..."})
+      setLoading(false);
       setTimeout(() => {
         goToAdmin();
       }, 2000)
@@ -40,7 +44,7 @@ export const LoginPage = () => {
 
   return (
     showPage && (
-      <DivFullPage>
+      <DivFullPage pad="0">
         <Grayout/>
         <Div pad="2em 0 0.25em 0" bg="var(--color-2a)">
           <TextG color="var(--color-w)">FAÇA SEU LOGIN</TextG>
@@ -60,9 +64,7 @@ export const LoginPage = () => {
         </Div>
       </DivFullPage>
     ) || (
-      <DivFullPage>
-        <TextM color="var(--color-w)">Verificando credenciais...</TextM>
-      </DivFullPage>
+      <Loading />
     )
   )
 }

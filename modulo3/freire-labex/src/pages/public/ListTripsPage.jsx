@@ -23,7 +23,7 @@ export const ListTripsPage = () => {
   }, []);
 
   return (
-    <DivFullPage>
+    <DivFullPage pad="0">
       <Grayout/>
       <Div maxW="100%" fw="wrap" fd="row" gap="0.75em" pad="0">
         {trips.map(trip => (

@@ -39,7 +39,6 @@ export const TripCard = ({trip}) => {
       axios.delete(UrlDeleteTrip, {headers: Header})
       .then(response => {
         alert("Viagem deletada com sucesso!")
-        alert(window.localStorage.getItem("tripId"))
       })
       .catch(error => {
         alert(error.response.data.message)

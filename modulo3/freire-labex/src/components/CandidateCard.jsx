@@ -16,7 +16,7 @@ export const CandidateCard = ({ candidate }) => {
   }
 
   return (
-    <Div jc="space-between" maxW="20em" minH="13em" pad="0.25em 0 0 0" gap="0" bg="var(--color-2a)">
+    <Div jc="space-between" maxW="20em" minH="13em" pad="0.25em 0 0 0" gap="0" bg="var(--color-2a)" bs="var(--shadow)">
       <Div jc="space-between" minH="6em" pad="0.25em 0 0.25em 0">
           <TextG minH="1em">{candidate.name}</TextG>
           <TextP minH="2.5em">{candidate.applicationText}</TextP>        

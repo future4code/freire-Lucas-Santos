@@ -22,7 +22,7 @@ const Title3 = styled.b`
 export const HomePage = () => {
   const navigate = useNavigate();
   return (
-    <DivFullPage>
+    <DivFullPage pad="0">
       <Div pad="0.5em">
         <Title1>O HÍPERESPAÇO ESTÁ</Title1>
         <Title2>ESPERANDO</Title2>

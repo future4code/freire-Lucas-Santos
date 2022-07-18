@@ -13,7 +13,9 @@ export const Grayout = styled.div`
   @keyframes fadeIn {to {opacity: 1;}}
 `
 export const DivFullPage = styled.div`
-  z-index: 1;
+  z-index: ${props => props.zIndex || "1"};
+  position: ${props => props.position || "relative"};
+  top: ${props => props.top || "0"};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,6 +137,7 @@ export const TextG = styled.b`
   font-size: min(8vw, 3rem);
   line-height: min(8vw, 2.5rem);
   color: ${props => props.color || "inherit"};
+  background-color: ${props => props.bg || "transparent"};
 `
 export const Br = styled.div`
   padding: ${props => props.pad || "0.5em"};
