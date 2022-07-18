@@ -38,7 +38,7 @@ export const TripDetailsPage = () => {
       <DivFullPage pad="2em">
         <Grayout/>
         <Div maxW="100%" fw="wrap" fd="row" gap="0.75em" pad="0 0 1em 0" bg="var(--color-2a)">
-          <TextG minH="2em" pad="0.5em 0.25em" bg="var(--color-2b)">{trip.name}</TextG>
+          <TextG minH="2em" pad="0.5em 0.25em" bg="var(--color-1a)">{trip.name}</TextG>
           <TextM pad="0 0.5em">{trip.description}</TextM>
           <Div fd="row" gap="0em" pad="0.5em">
             <ButtonFill minH="3em" margin="0">

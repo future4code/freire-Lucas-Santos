@@ -53,7 +53,7 @@ export const TripCard = ({trip}) => {
           <FaRocket size="min(6vw, 2rem)" color="var(--color-w)"/>
         </BuyButton>
         
-        <Img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt=""/>
+        <Img src="https://source.unsplash.com/400x200/?planets" alt="Imagem do universo"/>
         
         <Div pad="0.5em 0 0.25em 0">
           <TextM>{trip.name}</TextM>

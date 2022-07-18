@@ -46,7 +46,7 @@ export const LoginPage = () => {
 
   return (
     showPage ? (
-      <DivFullPage pad="0">
+      <DivFullPage pad="0 1em">
         <Grayout/>
         <Div pad="2em 0 0.25em 0" bg="var(--color-2a)">
           <TextG color="var(--color-w)">FAÇA SEU LOGIN</TextG>
