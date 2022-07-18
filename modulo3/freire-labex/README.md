@@ -1,70 +1,43 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Logo](https://firebasestorage.googleapis.com/v0/b/monsan-dev.appspot.com/o/LabeX%2FlogoLabeX.png?alt=media&token=5a4cede9-49e5-4b10-8ec4-d5b4330387fb)
 
-## Available Scripts
 
-In the project directory, you can run:
+Labe-X consiste em um gerenciador de viagens espaciais, com duas áreas distintas: PUBLIC (qualquer pessoa tem acesso sem autentificação) e PRIVATE (apenas o usuário autenticado pode acessar).
 
-### `yarn start`
+### PUBLIC
+Pode acessar a lista de viagens e se candidatar a qualquer uma delas.
+### PRIVATE
+Pode acessar as viagens existentes, excluí-las e criar novas, além de visualizar e decidir quais candidatos foram aprovados e quais foram rejeitados.
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+http://monsan-labex.surge.sh/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `yarn test`
+## Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Home Page](https://firebasestorage.googleapis.com/v0/b/monsan-dev.appspot.com/o/LabeX%2Fgifs%2FhomeLabeX.gif?alt=media&token=1e6c7ea9-14a0-4c42-9a40-d8126ade6fb9)
 
-### `yarn build`
+![List Page](https://firebasestorage.googleapis.com/v0/b/monsan-dev.appspot.com/o/LabeX%2Fgifs%2FlistLabeX.gif?alt=media&token=d1f4fe5a-5f1c-4f1f-97e1-98775380540a)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Login Page](https://firebasestorage.googleapis.com/v0/b/monsan-dev.appspot.com/o/LabeX%2Fgifs%2FloginLabeX.gif?alt=media&token=b7f3c4b4-58eb-4d87-b734-222e9fdbb009)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Admin Page](https://firebasestorage.googleapis.com/v0/b/monsan-dev.appspot.com/o/LabeX%2Fgifs%2FadminLabex.gif?alt=media&token=0950476f-c112-497d-aee4-34f40cc54904)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Colors
+![Color Palette](https://firebasestorage.googleapis.com/v0/b/monsan-dev.appspot.com/o/LabeX%2FcolorsLabeX.png?alt=media&token=84a3c871-1388-4a3a-bf61-0cd805dbd0bc)
+## Author
 
-### `yarn eject`
+- Lucas Monsan [@lucasmonsan](https://github.com/lucasmonsan)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Client:** ReactJS, StyledComponents - ReactRouter - LottieFiles
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Server:** Axios
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Feedback
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Se você tem algum feedback sobre esse projeto, por favor, envie para lucasmonsan@gmail.com.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
