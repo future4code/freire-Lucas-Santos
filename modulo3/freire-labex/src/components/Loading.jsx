@@ -3,7 +3,7 @@ import { DivFullPage } from './GlobalStyledComps';
 
 export const Loading = () => {
   return (
-    <DivFullPage pad="2em" zIndex="5" position="fixed" bg="rgba(0, 0, 0, 0.95)">
+    <DivFullPage pad="2em" zIndex="4" position="fixed" bg="rgba(0, 0, 0, 0.95)">
       <Player
         autoplay={true}
         loop={true}

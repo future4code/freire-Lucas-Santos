@@ -77,7 +77,7 @@ export const TripCard = ({trip}) => {
           <Img h="100%" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt=""/>
         </Div>
         <Div pad="0 0.15em">
-          <TextM>{trip.name}</TextM>
+          <TextM pad="0.15em 0.25em" minH="3em">{trip.name}</TextM>
           <Div fd="row" gap="0.25em" pad="0.25em">
             <ButtonFill minH="2.75em" margin="0" bsH="0 0 0.25em rgba(0,0,0,0.75)" onClick={() => goToTripDetails(navigate, trip.id)}>
               <TextP>DETALHES</TextP>

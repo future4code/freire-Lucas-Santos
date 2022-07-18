@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToCreateTrip, goToHome } from "../routers/RouterFlow";
-import { Loading } from "./Loading";
 
 const Nav = styled.nav`
   z-index: 1;
@@ -17,6 +15,8 @@ const Nav = styled.nav`
   height: 4em;
   padding: 0.5em;
   opacity: 0;
+  text-align: center;
+  line-height: 1.5em;
   background-color: rgba(17, 21, 29, 0.5);
   backdrop-filter: blur(0.75em);
   border-bottom: solid 0.15em var(--color-1b);
@@ -49,14 +49,10 @@ const Nav = styled.nav`
 `
 export const Header = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
 
   const logout = () => {
-    setLoading(true);
-    setTimeout(() => {
-      localStorage.removeItem("token");
-      goToHome(navigate);
-    }, 1000);
+    localStorage.removeItem("token");
+    goToHome(navigate);
   }
 
   return (
@@ -76,7 +72,6 @@ export const Header = () => {
           <a onClick={() => logout()}>LOGOUT</a>
         </div>
       }
-      {loading && <Loading />}
     </Nav>
   )
 }

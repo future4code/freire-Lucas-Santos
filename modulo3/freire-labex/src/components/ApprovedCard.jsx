@@ -8,7 +8,7 @@ export const ApprovedCard = ({ candidate }) => {
           <TextP minH="2.5em">{candidate.applicationText}</TextP>        
       </Div>
 
-      <Div fd="row" gap="0.5em" pad="0 0.5em 0.5em 0.5em">
+      <Div fd="row" gap="0.35em" pad="0 0.35em 0.35em 0.35em">
         <Div minH="3.5em" pad="0.5em" bg="var(--color-2b)">
           <TextP>{candidate.profession}</TextP>
         </Div>

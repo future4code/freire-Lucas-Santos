@@ -5,28 +5,28 @@ import { Grayout, DivFullPage, Div } from "../../components/GlobalStyledComps";
 import { TripCard } from "../../components/TripCard";
 import { Header } from "../../components/Header";
 import { Loading } from "../../components/Loading";
+import { useNavigate } from "react-router-dom";
+import { goToLogin } from "../../routers/RouterFlow";
 
 export const AdminHomePage = () => {
+  const navigate = useNavigate();
   const [trips, setTrips] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [showPage, setShowPage] = useState(false);
   window.localStorage.setItem("privilege", "private");
 
   useEffect((e) => {
     const getTrips = async () => {
-      setLoading(true);
       await axios.get(UrlGetTrips)
       .then(response => {
         setTrips(response.data.trips);
-        window.localStorage.setItem("trips", JSON.stringify(response.data.trips));
-        setLoading(false);
         setShowPage(true);
       })
       .catch(error => {
-        console.log(error);
+        getTrips();
       })
-    }
-    getTrips();
+    } 
+    
+    window.localStorage.getItem("token") === null ? goToLogin(navigate) : getTrips();
   }, []);
   
   return (

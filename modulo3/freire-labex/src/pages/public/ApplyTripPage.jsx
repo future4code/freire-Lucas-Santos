@@ -2,7 +2,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Grayout, DivFullPage, Div, Form, ButtonFill, Input, Br, TextM, TextG, Select, Option } from "../../components/GlobalStyledComps";
-import { UrlGetCountries, UrlApplyToTrip } from "../../api/RequestInfos";
+import { UrlGetCountries, UrlApplyToTrip, UrlGetTrips } from "../../api/RequestInfos";
 import { ModalNotify } from "../../components/ModalNotify";
 import { useForm } from "../../hooks/useForm";
 import { Loading } from "../../components/Loading";
@@ -14,12 +14,12 @@ export const ApplyTripPage = () => {
   const [applyForm, handleChange] = useForm({
     tripId: id,
     name: "", 
-    age: "", 
+    age: 0, 
     applicationText: "", 
     profession: "", 
     country: "",
   });
-  const [trips, setTrips] = useState(JSON.parse(window.localStorage.getItem("trips")));
+  const [trips, setTrips] = useState([]);
   const [countries, setCountries] = useState([]);
   const [modal, setModal] = useState({trigger: false, type: "", title: "", text: ""})
   const [loading, setLoading] = useState(false);
@@ -43,16 +43,29 @@ export const ApplyTripPage = () => {
   }
 
   useEffect((e) => {
-    const getTrips = async () => {
+    const getCountries = async () => {
       await axios.get(UrlGetCountries)
       .then(response => {
         setCountries(response.data.map(country => country.nome.abreviado))
         handleChange({ target: { name: "country", value: response.data[0].nome.abreviado } });
       })
       .catch(error => {
+        getCountries();
+      })
+    }
+
+    const getTrips = async () => {
+      await axios.get(UrlGetTrips)
+      .then(response => {
+        setTrips(response.data.trips);
+      })
+      .catch(error => {
+        getTrips();
         console.log(error);
       })
     }
+
+    getCountries();
     getTrips()
   }, []);
 
@@ -83,7 +96,9 @@ export const ApplyTripPage = () => {
               placeholder="Idade"
               value={applyForm.age} 
               onChange={handleChange} 
-              required pattern="[0-9]{2,}" 
+              required 
+              pattern="[0-9]{1,}"
+              min="1"
               title="Idade inválida" 
             />
             <Input 

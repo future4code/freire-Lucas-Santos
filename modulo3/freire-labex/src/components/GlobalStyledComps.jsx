@@ -119,6 +119,7 @@ export const ButtonFill = styled.button`
 `
 export const TextP = styled.b`
   min-height: ${props => props.minH || "100%"};
+  padding: ${props => props.pad || "0"};
   font-size: min(4vw, 1rem);
   line-height: min(4vw, 1rem);
   color: ${props => props.color || "inherit"};
@@ -126,6 +127,8 @@ export const TextP = styled.b`
 export const TextM = styled.b`
   z-index: 2;
   width: 100%;
+  min-height: ${props => props.minH || "100%"};
+  padding: ${props => props.pad || "0"};
   font-size: min(5vw, 1.5rem);
   line-height: min(5vw, 1.75rem);
   color: ${props => props.color || "inherit"};
@@ -134,6 +137,7 @@ export const TextG = styled.b`
   z-index: 2;
   width: 100%;
   min-height: ${props => props.minH || "100%"};
+  padding: ${props => props.pad || "0"};
   font-size: min(8vw, 3rem);
   line-height: min(8vw, 2.5rem);
   color: ${props => props.color || "inherit"};

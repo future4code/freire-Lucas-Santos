@@ -24,7 +24,9 @@ export const LoginPage = () => {
     .then(response => {
       localStorage.setItem("token", response.data.token);
       setModal({trigger: true, type: "success", title: "Login autorizado!", text: "Entrando no foguete..."})
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);      
       setTimeout(() => {
         goToAdmin();
       }, 2000)
