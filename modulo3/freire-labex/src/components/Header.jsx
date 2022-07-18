@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import logo from "../images/logo.svg";
+import logo from "../assets/logo.svg";
+import { useNavigate } from "react-router-dom";
+import { goToCreateTrip, goToHome } from "../routers/RouterFlow";
 
 const Nav = styled.nav`
   z-index: 3;
@@ -44,15 +46,30 @@ const Nav = styled.nav`
   }  
 `
 export const Header = () => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    goToHome(navigate);
+  }
+
   return (
     <Nav>
       <div>
         <img src={logo} alt="logo" />
-        <a href="/admin">QUEM SOMOS?</a>
       </div>
-      <div>
-        <a>Olá, viajante!</a>
-      </div>
+      
+      {window.localStorage.getItem("token") &&
+        <div>
+          <a onClick={() => goToCreateTrip(navigate)}>CADASTRAR VIAGEM</a>
+        </div>
+      }
+
+      {window.localStorage.getItem("token") &&
+        <div>
+          <a onClick={() => logout()}>LOGOUT</a>
+        </div>
+      }
     </Nav>
   )
 }

@@ -12,13 +12,13 @@ const Modal = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: var(--header-h);
+  min-height: var(--header-h);
   padding: 0.5em 1em;
   color: var(--color-w);
   background-color: ${modal => modal.bg || "var(--color-2b)"};
   box-shadow: var(--shadow);
   transform: translateY(100%);
-  transition: all 0.25s ease-in-out;
+  transition: var(--transition-fast);
 `
 export const ModalNotify = ({modal, setModal}) => {
   useEffect(() => {

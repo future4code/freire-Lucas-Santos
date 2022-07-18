@@ -5,12 +5,16 @@
   --color-2a: #2D3343;
   --color-2b: #1D2431;
   --color-yes: #96B828;
+  --color-yesH: #718B1D;
   --color-no: #D53F49;
+  --color-noH: #93262D;
   --color-b: #11151D;
   --color-w: #FFFFFF;
   --header-h: 4em;
   --radius: 0.5em;
   --shadow: 0 0 0.5rem rgba(0, 0, 0, 0.75);
+  --transition-slow: all 0.4s ease-in-out;
+  --transition-fast: all 0.25s ease-in-out;
 }
 * {
   margin: 0;

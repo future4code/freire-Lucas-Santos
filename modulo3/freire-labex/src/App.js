@@ -1,13 +1,12 @@
 import { DivFullPage } from "./components/GlobalStyledComps";
-import { RouterFlow } from "./router/RouterFlow";
+import { RouterFlow } from "./routers/RouterFlow";
 import { Background } from "./components/Background";
 import { Header } from "./components/Header";
 
 function App() {
   return (
-    <DivFullPage minH="100%">
+    <DivFullPage minH="100%" pad="0px">
       <Background />
-      <Header />
       <RouterFlow />
     </DivFullPage>
   );

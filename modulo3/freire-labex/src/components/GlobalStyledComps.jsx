@@ -7,7 +7,7 @@ export const Grayout = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(17, 21, 29, 0.95);
+  background-color: rgba(17, 21, 29, 0.9);
   opacity: 0;
   animation: fadeIn 0.25s ease-in-out forwards;
   @keyframes fadeIn {to {opacity: 1;}}
@@ -21,9 +21,9 @@ export const DivFullPage = styled.div`
   width: 100%;
   height: 100%;
   min-height: ${props => props.minH || "100vh"};
-  padding: ${props => props.pad || '0'};
+  padding: ${props => props.pad || "var(--header-h) 0.5em 0 0.5em"};
   opacity: 0;
-  background-color: ${props => props.bg || "var(--color-b)"};
+  background-color: ${props => props.bg || "transparent"};
   animation: fadeIn 0.4s ease-in-out forwards normal;
   @keyframes fadeIn {to {opacity: 1;}}
 `
@@ -32,16 +32,18 @@ export const Div = styled.div`
   display: flex;
   flex-wrap: ${props => props.fw || "nowrap"};
   flex-direction: ${props => props.fd || 'column'};
-  align-items: center;
-  justify-content: center;
+  align-items: ${props => props.ai || 'center'};
+  justify-content: ${props => props.jc || 'center'};
   gap: ${props => props.gap || '0'};
   width: 100%;
   max-width: ${props => props.maxW || "32em"};
   height: 100%;
+  min-height: ${props => props.minH || "100%"};
+  margin: ${props => props.mar || "0"};
   padding: ${props => props.pad || "2em"};
   color: var(--color-w);
   background-color: ${props => props.bg || "transparent"};
-  border-radius: 0.5em;
+  border-radius: ${props => props.br || "var(--radius)"};
   overflow: hidden;
   box-shadow: ${props => props.bs || "none"};
 `
@@ -59,7 +61,7 @@ border: solid 0.1em var(--color-2b);
 border-radius: 0.5em;
 outline: none;
 opacity: 1;
-transition: all 0.25s ease-in-out;
+transition: var(--transition-fast);
 &:focus {
   border: solid 0.1em var(--color-1a);
 }
@@ -75,9 +77,9 @@ export const ButtonLine = styled.button`
   color: var(--color-w);
   background-color: transparent;
   border: solid 0.15em var(--color-w);
-  border-radius: 0.5em;
+  border-radius: ${props => props.br || "var(--radius)"};
   box-shadow: var(--shadow);
-  transition: all 0.25s ease-in-out;
+  transition: var(--transition-fast);
   &:hover {
     background-color: var(--color-w);
     color: var(--color-1a);
@@ -89,19 +91,20 @@ export const ButtonFill = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: ${props => props.w || '100%'};
+  width: ${props => props.w || "100%"};
+  height: ${props => props.h || "100%"};
   min-height: ${props => props.minH || "4.5em"};
   margin: ${props => props.margin || "0 0.75em"};
-  padding: 0.5em;
+  padding: ${props => props.pad || "0.5em"};
   color: var(--color-w);
-  background-color: var(--color-1b);
-  border: solid 0.15em var(--color-1b);
-  border-radius: 0.5em;
-  transition: all 0.25s ease-in-out;
+  background-color: ${props => props.bg || "var(--color-1b)"};
+  border: none;
+  border-radius: ${props => props.br || "var(--radius)"};
+  transition: var(--transition-fast);
   &:hover {
-    background-color: var(--color-1a);
+    background-color: ${props => props.bgH || "var(--color-1a)"};
     border-color: var(--color-1a);
-    box-shadow: var(--shadow);
+    box-shadow: ${props => props.bsH || "var(--shadow)"};
   }
   &:disabled {
     opacity: 0.3;
@@ -113,18 +116,22 @@ export const ButtonFill = styled.button`
   }
 `
 export const TextP = styled.b`
+  min-height: ${props => props.minH || "100%"};
   font-size: min(4vw, 1rem);
   line-height: min(4vw, 1rem);
   color: ${props => props.color || "inherit"};
 `
 export const TextM = styled.b`
   z-index: 2;
+  width: 100%;
   font-size: min(5vw, 1.5rem);
   line-height: min(5vw, 1.75rem);
   color: ${props => props.color || "inherit"};
 `
 export const TextG = styled.b`
   z-index: 2;
+  width: 100%;
+  min-height: ${props => props.minH || "100%"};
   font-size: min(8vw, 3rem);
   line-height: min(8vw, 2.5rem);
   color: ${props => props.color || "inherit"};
@@ -139,4 +146,32 @@ export const Form = styled.form`
   justify-content: center;
   width: 100%;
   height: 100%;
+`
+export const Select = styled.select`
+  appearance: none;
+  width: 100%;
+  height: 2.5em;
+  margin-bottom: 0.75em;
+  padding: 0 0.25em;
+  font-size: min(6vw, 1.5rem);
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-w);
+  background-color: var(--color-2b);
+  border: solid 0.1em var(--color-2b);
+  border-radius: 0.5em;
+  outline: none;
+  opacity: 1;
+  transition: var(--transition-fast);
+  &:focus {
+    border: solid 0.1em var(--color-1a);
+  }
+`
+export const Option = styled.option`
+  font-size: min(7vw, 1.5rem);
+  font-weight: 500;
+  text-align: center;
+  line-height: min(7vw, 1.5rem);
+  color: var(--color-w);
+  border: solid red;
 `
