@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Grayout, DivFullPage, Div, Form, ButtonFill, Input, Br, TextM, TextG, Select, Option } from "../../components/GlobalStyledComps";
+import { ContextButton, Grayout, DivFullPage, Div, Form, ButtonFill, Input, Br, TextM, TextG, Select, Option } from "../../components/GlobalStyledComps";
 import { UrlPostCreateTrip, Header } from "../../api/RequestInfos";
 import { ModalNotify } from "../../components/ModalNotify";
 import { useForm } from "../../hooks/useForm";
 import { Loading } from "../../components/Loading";
 import { goToLogin } from "../../routers/RouterFlow";
+import { FaAngleLeft } from "react-icons/fa";
 
 export const CreateTripPage = () => {
   const { id } = useParams();
@@ -17,8 +18,8 @@ export const CreateTripPage = () => {
     name: "", 
     age: "", 
     planet: "", 
-    date: "", 
-    durationInDays: 0,
+    date: new Date().toISOString().split("T")[0],
+    durationInDays: "",
     description: "",
   });
   const [modal, setModal] = useState({trigger: false, type: "", title: "", text: ""})
@@ -41,10 +42,11 @@ export const CreateTripPage = () => {
 
   useEffect((e) => {
     window.localStorage.getItem("token") === null && goToLogin(navigate)
+    window.localStorage.setItem("page", "create-trip");
   }, []);
 
   return (
-    <DivFullPage pad="0">
+    <DivFullPage minH="100%">
       <Grayout/>
       <Div pad="2em 0 0.25em 0" bg="var(--color-2a)">
         <TextG color="var(--color-w)">NOVA VIAGEM</TextG>
@@ -69,7 +71,6 @@ export const CreateTripPage = () => {
               title="Nome deve ter no mínimo 2 caracteres"
             />
             <Input 
-              type={"number"} 
               name="durationInDays" 
               placeholder="Duração (em dias)"
               value={tripForm.durationInDays}
@@ -91,12 +92,11 @@ export const CreateTripPage = () => {
             <Input
               type={"date"}
               name="date" 
-              placeholder="date"
+              placeholder="Data"
               value={tripForm.date} 
               onChange={handleChange} 
               required
               pattern="[0-9]{2,}"
-              title="Data deve ter no mínimo 2 caracteres"
             />
             <Br/>
             <ButtonFill>
@@ -107,6 +107,9 @@ export const CreateTripPage = () => {
       </Div>
       {modal.trigger && <ModalNotify modal={modal} setModal={setModal}/>}
       {loading && <Loading/>}
+      <ContextButton onClick={() => navigate(-1)}>
+        <FaAngleLeft size="2.5em"/>
+      </ContextButton>
     </DivFullPage>
   );
 }

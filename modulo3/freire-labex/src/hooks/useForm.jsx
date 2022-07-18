@@ -5,6 +5,10 @@ export const useForm = (initialState) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    name === "age" || name === "durationInDays" ?
+    setForm({ ...form, [name]: parseInt(value) }) 
+    : 
     setForm({ ...form, [name]: value });
   }
 

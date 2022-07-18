@@ -26,13 +26,14 @@ export const LoginPage = () => {
       setModal({trigger: true, type: "success", title: "Login autorizado!", text: "Entrando no foguete..."})
       setTimeout(() => {
         setLoading(false);
-      }, 1000);      
+      }, 500);      
       setTimeout(() => {
         goToAdmin();
       }, 2000)
     })
     .catch(error => {
       setModal({trigger: true, type: "error", title: "Login negado!", text: "Email ou senha incorretos!"})
+      setLoading(false);
     })
   }
 

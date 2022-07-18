@@ -74,7 +74,7 @@ export const TripCard = ({trip}) => {
     ) || (    
       <Div maxW="24em" fd="row" gap="0.25em" pad="0" bg="var(--color-2a)">
         <Div maxW="12em" pad="0" br="var(--radius) 0 0 var(--radius)">
-          <Img h="100%" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt=""/>
+          <Img h="100%" src="https://source.unsplash.com/400x260/?planets" alt="Imagem do universo"/>
         </Div>
         <Div pad="0 0.15em">
           <TextM pad="0.15em 0.25em" minH="3em">{trip.name}</TextM>

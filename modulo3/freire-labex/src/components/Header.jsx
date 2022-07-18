@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import logo from "../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
-import { goToCreateTrip, goToHome } from "../routers/RouterFlow";
+import { goToHome } from "../routers/RouterFlow";
+import { TextM } from "./GlobalStyledComps";
+import logo from "../assets/logo.png";
 
 const Nav = styled.nav`
-  z-index: 1;
+  z-index: 2;
   position: fixed;
   top: 0;
   display: flex;
@@ -17,6 +18,7 @@ const Nav = styled.nav`
   opacity: 0;
   text-align: center;
   line-height: 1.5em;
+  color: var(--color-w);
   background-color: rgba(17, 21, 29, 0.5);
   backdrop-filter: blur(0.75em);
   border-bottom: solid 0.15em var(--color-1b);
@@ -34,17 +36,6 @@ const Nav = styled.nav`
       cursor: pointer;
       height: 100%;
     }
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: fit-content;
-      height: 100%;
-      color: var(--color-w);
-      font-size: 1.4rem;
-      font-weight: bold;
-      text-decoration: none;
-    }
   }  
 `
 export const Header = () => {
@@ -58,18 +49,12 @@ export const Header = () => {
   return (
     <Nav>
       <div>
-        <img onClick={() => goToHome(navigate)} src={logo} alt="logo" />
+        <img src={logo} alt="logo" onClick={() => goToHome(navigate)} />
       </div>
       
       {window.localStorage.getItem("token") &&
         <div>
-          <a onClick={() => goToCreateTrip(navigate)}>CADASTRAR VIAGEM</a>
-        </div>
-      }
-
-      {window.localStorage.getItem("token") &&
-        <div>
-          <a onClick={() => logout()}>LOGOUT</a>
+          <TextM style={{cursor: "pointer"}} onClick={() => logout()}>LOGOUT</TextM>
         </div>
       }
     </Nav>

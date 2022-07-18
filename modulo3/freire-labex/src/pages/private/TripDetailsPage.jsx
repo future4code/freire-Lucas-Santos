@@ -2,12 +2,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { UrlGetTripDetails, Header } from "../../api/RequestInfos";
-import { Grayout, DivFullPage, Div, TextG, TextM, TextP, ButtonFill, Br } from "../../components/GlobalStyledComps";
+import { ContextButton, Grayout, DivFullPage, Div, TextG, TextM, TextP, ButtonFill, Br } from "../../components/GlobalStyledComps";
 import { CandidateCard } from "../../components/CandidateCard";
 import { ApprovedCard } from "../../components/ApprovedCard";
 import { Loading } from "../../components/Loading";
 import { useNavigate } from "react-router-dom";
 import { goToLogin } from "../../routers/RouterFlow";
+import { FaAngleLeft } from "react-icons/fa";
+
 
 export const TripDetailsPage = () => {
   const { id } = useParams();
@@ -26,7 +28,7 @@ export const TripDetailsPage = () => {
         setShowPage(true);
       })
       .catch(error => {
-        getTrip();
+        window.location.reload();
       })
     }
     
@@ -35,10 +37,10 @@ export const TripDetailsPage = () => {
 
   return (
     showPage ? (
-      <DivFullPage pad="2em">
+      <DivFullPage>
         <Grayout/>
-        <Div maxW="100%" fw="wrap" fd="row" gap="0.75em" pad="0 0 1em 0" bg="var(--color-2a)">
-          <TextG minH="2em" pad="0.5em 0.25em" bg="var(--color-1a)">{trip.name}</TextG>
+        <Div maxW="72em" fw="wrap" fd="row" gap="0.75em" pad="0 0 1em 0" bg="var(--color-2a)">
+          <TextG minH="2em" pad="0.5em 0.25em" bg="var(--color-1b)">{trip.name}</TextG>
           <TextM pad="0 0.5em">{trip.description}</TextM>
           <Div fd="row" gap="0em" pad="0.5em">
             <ButtonFill minH="3em" margin="0">
@@ -52,7 +54,7 @@ export const TripDetailsPage = () => {
             </ButtonFill>
           </Div>
 
-          <TextG>PENDENTES</TextG>
+          <TextG minH="1.5em" pad="0.5em 0.25em" bg="var(--color-2b)">PENDENTES</TextG>
           {trip.candidates !== undefined && trip.candidates.length > 0 ? 
             <Div fd="row" fw="wrap" gap="0.5em" pad="0.5em" maxW="100%">
               {trip.candidates.map(candidate => (
@@ -62,7 +64,7 @@ export const TripDetailsPage = () => {
           :
             <TextP pad="0 0 1em 0">Nenhum candidato pendente</TextP>
           }
-          <TextG>APROVADOS</TextG>
+          <TextG minH="1.5em" pad="0.5em 0.25em" bg="var(--color-2b)">APROVADOS</TextG>
           {trip.approved !== undefined && trip.approved.length > 0 ?
             <Div fd="row" fw="wrap" gap="0.5em" pad="0.5em" maxW="100%">
               {trip.approved.map(candidate => (
@@ -73,6 +75,9 @@ export const TripDetailsPage = () => {
             <TextP>Nenhum candidato aprovado</TextP>
           }
         </Div>
+        <ContextButton onClick={() => navigate(-1)}>
+          <FaAngleLeft size="2.5em"/>
+        </ContextButton>
       </DivFullPage>
     ) : (
       <Loading />

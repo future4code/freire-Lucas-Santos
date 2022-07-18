@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Grayout, DivFullPage, Div, Form, ButtonFill, Input, Br, TextM, TextG, Select, Option } from "../../components/GlobalStyledComps";
+import { ContextButton, Grayout, DivFullPage, Div, Form, ButtonFill, Input, Br, TextM, TextG, Select, Option } from "../../components/GlobalStyledComps";
 import { UrlGetCountries, UrlApplyToTrip, UrlGetTrips } from "../../api/RequestInfos";
 import { ModalNotify } from "../../components/ModalNotify";
 import { useForm } from "../../hooks/useForm";
 import { Loading } from "../../components/Loading";
+import { FaAngleLeft } from "react-icons/fa";
 
 export const ApplyTripPage = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ export const ApplyTripPage = () => {
   const [applyForm, handleChange] = useForm({
     tripId: id,
     name: "", 
-    age: 0, 
+    age: "", 
     applicationText: "", 
     profession: "", 
     country: "",
@@ -70,8 +71,8 @@ export const ApplyTripPage = () => {
   }, []);
 
   return (
-    <DivFullPage pad="0">
-      <Grayout/>
+    <DivFullPage minH="100vh">
+      <Grayout opacity="1"/>
       <Div pad="2em 0 0.25em 0" bg="var(--color-2a)">
         <TextG color="var(--color-w)">PREENCHA SEUS DADOS</TextG>
         <Form action="" onSubmit={handleApply}>
@@ -91,7 +92,6 @@ export const ApplyTripPage = () => {
               title="Nome inválido" 
             />
             <Input 
-              type={"number"} 
               name="age" 
               placeholder="Idade"
               value={applyForm.age} 
@@ -129,6 +129,9 @@ export const ApplyTripPage = () => {
       </Div>
       {modal.trigger && <ModalNotify modal={modal} setModal={setModal}/>}
       {loading && <Loading/>}
+      <ContextButton onClick={() => navigate(-1)}>
+        <FaAngleLeft size="2.5em"/>
+      </ContextButton>
     </DivFullPage>
   );
 }

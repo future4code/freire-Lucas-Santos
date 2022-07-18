@@ -4,11 +4,10 @@ export const Grayout = styled.div`
   z-index: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 150vh;
   background-color: rgba(17, 21, 29, 0.9);
-  opacity: 0;
+  opacity: ${props => props.opacity || "0"};
   animation: fadeIn 0.25s ease-in-out forwards;
   @keyframes fadeIn {to {opacity: 1;}}
 `
@@ -23,7 +22,7 @@ export const DivFullPage = styled.div`
   width: 100%;
   height: 100%;
   min-height: ${props => props.minH || "100vh"};
-  padding: ${props => props.pad || "var(--header-h) 0.5em 0 0.5em"};
+  padding: ${props => props.pad || "calc(var(--header-h) + 1em) 0.75em 1.5em 0.75em"};
   opacity: 0;
   background-color: ${props => props.bg || "transparent"};
   animation: fadeIn 0.4s ease-in-out forwards normal;
@@ -74,6 +73,7 @@ export const ButtonLine = styled.button`
   align-items: center;
   justify-content: center;
   width: ${props => props.w || '100%'};
+  min-height: ${props => props.minH || '100%'};
   margin: 0 0.5em;
   padding: 0.5em 0.25em;
   color: var(--color-w);
@@ -155,7 +155,6 @@ export const Form = styled.form`
   height: 100%;
 `
 export const Select = styled.select`
-  appearance: none;
   width: 100%;
   height: 2.5em;
   margin-bottom: 0.75em;
@@ -181,4 +180,25 @@ export const Option = styled.option`
   line-height: min(7vw, 1.5rem);
   color: var(--color-w);
   border: solid red;
+`
+export const ContextButton = styled.button`
+z-index: 3;
+  position: fixed;
+  bottom: 1.5em;
+  left: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5em;
+  height: 4.5em;
+  padding: 0.5em;
+  color: var(--color-w);
+  background-color: var(--color-1b);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  transition: var(--transition-fast);
+  &:hover {
+    background-color: var(--color-1a);
+  }
 `

@@ -29,10 +29,17 @@ export const HomePage = () => {
         <Title3>POR VOCÊ</Title3>
       </Div>
       <Div fd="row" pad="0.5em 2em">
-        <ButtonLine onClick={() => goToLogin(navigate)}>
-          <TextM>FAZER</TextM>
-          <TextG>LOGIN</TextG>
-        </ButtonLine>
+        {window.localStorage.getItem("token") === null ? (
+          <ButtonLine onClick={() => goToLogin(navigate)}>
+            <TextM>FAZER</TextM>
+            <TextG>LOGIN</TextG>
+          </ButtonLine>
+        ) : (
+          <ButtonLine onClick={() => goToLogin(navigate)}>
+            <TextM>ACESSAR O</TextM>
+            <TextG>PAINEL</TextG>
+          </ButtonLine>
+        )}
         <ButtonLine onClick={() => goToListTrips(navigate)}>
           <TextM>LISTA DE</TextM>
           <TextG>VIAGENS</TextG>
