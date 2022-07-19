@@ -1,5 +1,9 @@
 {
+<<<<<<<< HEAD:modulo3/Freire-labex/package.json
+  "name": "freire-labex",
+========
   "name": "freire-astromatch",
+>>>>>>>> master:modulo3/Freire-astromatch/package.json
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,11 +12,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<<< HEAD:modulo3/Freire-labex/package.json
+    "@stitches/react": "^1.2.8",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.3.0"
+========
     "@lottiefiles/react-lottie-player": "^3.4.7",
     "axios": "^0.27.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.4.0"
+>>>>>>>> master:modulo3/Freire-astromatch/package.json
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
