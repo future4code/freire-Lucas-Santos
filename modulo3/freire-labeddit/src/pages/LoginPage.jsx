@@ -1,6 +1,9 @@
+import { useState, useEffect } from "react"
 import styled from "styled-components"
+import axios from "axios"
+import { Header, BaseUrl } from "../api/infos"
+import { useNavigate } from "react-router-dom"
 import { Colors } from "../styles/Colors"
-import { RiUser3Line, RiLockPasswordLine } from "react-icons/ri"
 
 const Section = styled.section`
   display: flex;
@@ -14,42 +17,113 @@ const Section = styled.section`
   overflow: hidden;
   border-radius: 1em;
   box-shadow: 0px 0px 0.5em rgba(0, 0, 0, 0.5);
-  div {
+  div, form {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-    padding: 0.5em 0 1em 0;
+    padding: 0.5em 0 1em 0; 
   }
 `
 const H1 = styled.h1`
   color: ${Colors.white};
   font-size: min(3em, 10vw);
 `
+const Input = styled.input`
+  width: 85%;
+  padding: 0.5em 0.25em;
+  margin-bottom: 0.75em;
+  background-color: transparent;
+  color: ${Colors.white};
+  font-size: min(1.5em, 6vw);
+  text-align: center;
+  outline: none;
+  border: 0.1em solid ${Colors.black};
+  border-radius: 0.5em;
+  transition: all 0.2s ease-in-out;
+  &:focus {
+    border-color: ${Colors.pink};
+    box-shadow: 0px 0px 0.5em rgba(0, 0, 0, 0.25);
+  }
+`
+const Button = styled.button`
+  width: 90%;
+  padding: 0.4em;
+  background-color: ${Colors.purple};
+  color: ${Colors.white};
+  font-size: min(2em, 8vw);
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.5;
+  border: none;
+  border-radius: 0.25em;
+  transition: all 0.2s ease-in-out;
+  &:hover {opacity: 1;}
+  &:disabled {opacity: 0.5; cursor: not-allowed;}
+`
+const A = styled.a`
+  color: ${Colors.brown};
+  font-size: min(1em, 4vw);
+  font-weight: bold;
+  text-decoration: underline #9F7E94;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    opacity: 0.5;
+    text-decoration: underline;
+  }
+`
 
 export const LoginPage = () => {
+  const [form, setForm] = useState({email:"", password:""})
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+
+    if (token) {
+      navigate("/dashboard")
+    } else {
+      localStorage.removeItem("token")
+    }
+  }, [])
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    await axios.post(`${BaseUrl}/users/login`, form, Header)
+    .then(response => {
+      localStorage.setItem("token", response.data.token)
+      setTimeout(() => {
+        navigate("/dashboard")
+      }, 1500)
+    })
+    .catch(error => {
+      alert("Deu ruim!");
+    })
+  }
+
   return (
     <>
       <Section>
         <div style={{height: "fit-content", backgroundColor: Colors.pink, boxShadow: "0 0 0.5em black"}}>
           <H1>Login</H1>
         </div>
+        <br />
+        <form action="" onSubmit={handleLogin}>
+          <Input placeholder="E-mail" type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})}
+            required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="E-mail inválido!"/>
+          <Input placeholder="Senha" type="password" value={form.password} onChange={e => setForm({...form, password: e.target.value})}
+            required title="A senha deve entre 8 e 30 caracteres" minLength="8" maxLength="30"/>
+          <Button>Entrar</Button>
+        </form>
         <div>
-          
+          <A href="/">Não tem uma conta? Faça o cadastro!</A>
         </div>
       </Section>
-      <br />
-      <br />
-      <Section>
-        <div style={{height: "fit-content", backgroundColor: Colors.pink, boxShadow: "0 0 0.5em black"}}>
-          <H1>Cadastro</H1>
-        </div>
-        <div>
-          
-        </div>
-      </Section>
-    </>
-    
+    </>    
   )
 }
