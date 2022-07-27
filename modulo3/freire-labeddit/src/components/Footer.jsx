@@ -19,8 +19,8 @@ const FooterBox = styled.footer`
     transition: all 0.1s ease-in-out;
     &#btnAdd {
       max-width: 3em;
-      padding: 0.25em;
-      background-color: ${Colors.purple};
+      padding: 0.5em;
+      background-image: linear-gradient(to right, ${Colors.pink}, ${Colors.purple});
       border-radius: 100%;
     }
     :active {
@@ -28,13 +28,12 @@ const FooterBox = styled.footer`
     }
   }
 `
-
 export const Footer = () => {
   return (
     <FooterBox>
-      <RiArrowLeftSLine size="3em" color={Colors.brown}/>
+      <RiArrowLeftSLine size="2em" color={Colors.brown}/>
       <RiAddFill id="btnAdd" size="3em" color={Colors.white}/>
-      <RiUser3Line size="2em" color={Colors.brown}/>
+      <RiUser3Line size="1.5em" color={Colors.brown}/>
     </FooterBox>
   )
 }

@@ -1,6 +1,5 @@
-export const Header = {
+export const Headers = {
   "Content-Type": "application/json",
-  auth: window.localStorage.getItem("token")
 }
 
 export const BaseUrl = `https://labeddit.herokuapp.com`;

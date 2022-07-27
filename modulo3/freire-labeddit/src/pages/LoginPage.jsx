@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
 import axios from "axios"
-import { Header, BaseUrl } from "../api/infos"
+import { Headers, BaseUrl } from "../api/infos"
 import { useNavigate } from "react-router-dom"
 import { Colors } from "../styles/Colors"
 
 const Section = styled.section`
+  position: fixed;
+  top: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 90%;
   height: fit-content;
   max-width: 420px;
   background-color: ${Colors.grey};
@@ -23,18 +25,18 @@ const Section = styled.section`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
-    padding: 0.5em 0 1em 0; 
+    height: 100%; 
   }
 `
 const H1 = styled.h1`
+  margin: 0.25em 0 0.4em 0;
   color: ${Colors.white};
   font-size: min(3em, 10vw);
 `
 const Input = styled.input`
   width: 85%;
   padding: 0.5em 0.25em;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.5em;
   background-color: transparent;
   color: ${Colors.white};
   font-size: min(1.5em, 6vw);
@@ -50,6 +52,7 @@ const Input = styled.input`
 `
 const Button = styled.button`
   width: 90%;
+  margin-top: 0.25em;
   padding: 0.4em;
   background-color: ${Colors.purple};
   color: ${Colors.white};
@@ -64,6 +67,7 @@ const Button = styled.button`
   &:disabled {opacity: 0.5; cursor: not-allowed;}
 `
 const A = styled.a`
+  margin: 1.5em 0 1em 0;
   color: ${Colors.brown};
   font-size: min(1em, 4vw);
   font-weight: bold;
@@ -80,23 +84,23 @@ export const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token")
+  // useEffect(() => {
+  //   const token = localStorage.getItem("tknLabEddit")
 
-    if (token) {
-      navigate("/dashboard")
-    } else {
-      localStorage.removeItem("token")
-    }
-  }, [])
+  //   if (token) {
+  //     navigate("/dashboard")
+  //   } else {
+  //     localStorage.removeItem("tknLabEddit")
+  //   }
+  // }, [])
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    await axios.post(`${BaseUrl}/users/login`, form, Header)
+    await axios.post(`${BaseUrl}/users/login`, form, Headers)
     .then(response => {
-      localStorage.setItem("token", response.data.token)
+      localStorage.setItem("tknLabEddit", response.data.token)
       setTimeout(() => {
         navigate("/dashboard")
       }, 1500)
@@ -107,23 +111,21 @@ export const LoginPage = () => {
   }
 
   return (
-    <>
-      <Section>
-        <div style={{height: "fit-content", backgroundColor: Colors.pink, boxShadow: "0 0 0.5em black"}}>
-          <H1>Login</H1>
-        </div>
-        <br />
-        <form action="" onSubmit={handleLogin}>
-          <Input placeholder="E-mail" type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})}
-            required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="E-mail inválido!"/>
-          <Input placeholder="Senha" type="password" value={form.password} onChange={e => setForm({...form, password: e.target.value})}
-            required title="A senha deve entre 8 e 30 caracteres" minLength="8" maxLength="30"/>
-          <Button>Entrar</Button>
-        </form>
-        <div>
-          <A href="/">Não tem uma conta? Faça o cadastro!</A>
-        </div>
-      </Section>
-    </>    
+    <Section>
+      <div style={{height: "fit-content", backgroundColor: Colors.pink, boxShadow: "0 0 0.5em black"}}>
+        <H1>Login</H1>
+      </div>
+      <br />
+      <form action="" onSubmit={handleLogin}>
+        <Input placeholder="E-mail" type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})}
+          required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="E-mail inválido!"/>
+        <Input placeholder="Senha" type="password" value={form.password} onChange={e => setForm({...form, password: e.target.value})}
+          required title="A senha deve entre 8 e 30 caracteres" minLength="8" maxLength="30"/>
+        <Button>Entrar</Button>
+      </form>
+      <div>
+        <A href="/">Não tem uma conta? Faça o cadastro!</A>
+      </div>
+    </Section>  
   )
 }
