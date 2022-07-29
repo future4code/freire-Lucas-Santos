@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
 import { BaseUrl, Headers } from "../../api/infos"
 import { Colors } from "../../styles/Colors";
 import { RiArrowLeftSLine } from "react-icons/ri";
+import { Loading } from "../../components/Loading";
 
 const Section = styled.section`
   position: fixed;
@@ -15,18 +15,31 @@ const Section = styled.section`
   width: 100%;
   height: fit-content;
   min-height: 20em;
-  padding-bottom: 0.5em;
+  padding-bottom: 1em;
   background-color: ${Colors.grey};
   overflow: hidden;
   border-radius: 1em 1em 0 0;
   box-shadow: 0px 0px 0.5em rgba(0, 0, 0, 0.5);
   transform: translateY(100%);
   transition: all 0.3s ease-in-out;
+  input {
+    width: 94%;
+    margin-top: 0.25em;
+    padding: 0.1em 0;
+    font-size: min(2.5rem, 6vw);
+    font-weight: bold;
+    color: ${Colors.white};
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 0.1em ${Colors.white};
+    outline: none;
+  }
   textarea {
     flex-grow: 1;
     width: 92.5%;
-    margin: 0.25em 0 0.25em 0;
-    font-size: min(2rem, 4vw);
+    margin: 0.25em 0;
+    padding: 0.1em 0;
+    font-size: min(2rem, 4.5vw);
     resize: none;
     color: ${Colors.white};
     background-color: transparent;
@@ -75,8 +88,8 @@ const Grayout = styled.div`
   transition: all 0.25s ease-in-out;
 `
 export const DashboardNewPost = ({ setTrigger}) => {
-  const { id } = useParams();
-  const [comment, setComment] = useState("");
+  const [post, setPost] = useState({title: "", body: ""});
+  const [loading, setLoading] = useState(false);
 
   const hide = () => {
     const grayout = document.querySelector(".grayout");
@@ -89,16 +102,18 @@ export const DashboardNewPost = ({ setTrigger}) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (comment.length > 0) {
+    if ((post.title.length > 0) && (post.body.length > 0)) {
+      setLoading(true);
       const token = localStorage.getItem("tknLabEddit");
-      axios.post(`${BaseUrl}/posts/${id}/comments`, {body: comment}, {headers: {...Headers, Authorization: token}})
+      axios.post(`${BaseUrl}/posts`, post, {headers: {...Headers, Authorization: token}})
       .then(response => {
-        console.log(response);
-        setComment("");
+        setLoading(false);
+        setPost("");
         hide();
       })
       .catch(error => {
-        console.log(error);
+        setLoading(false);
+        alert("Erro ao enviar post");
       })
     } else {
       alert("Não é possível enviar um comentário vazio");
@@ -112,7 +127,6 @@ export const DashboardNewPost = ({ setTrigger}) => {
       section.style.transform = "translateY(0)";
     }, 100);
   }, [])
-
   return (
     <>
       <Grayout className="grayout"/>
@@ -120,7 +134,8 @@ export const DashboardNewPost = ({ setTrigger}) => {
         <Div style={{height: "fit-content", backgroundColor: Colors.pink, boxShadow: "0 0 0.5em black"}}>
           <H1>Novo Post</H1>
         </Div>
-        <textarea placeholder="Digite a descrição do post aqui..." value={comment} onChange={e => setComment(e.target.value)} />
+        <input type="text" placeholder="Título..." value={post.title} onChange={e => setPost({...post, title: e.target.value})}/>
+        <textarea placeholder="Digite a descrição do post aqui..." value={post.body} onChange={e => setPost({...post, body: e.target.value})}/>
         <Div fd="row" jc="space-between" w="95%" style={{backgroundImage:"none"}}>
           <button style={{maxWidth:"2em"}} onClick={hide}>
             <RiArrowLeftSLine />
@@ -130,6 +145,7 @@ export const DashboardNewPost = ({ setTrigger}) => {
           </button>
         </Div>
       </Section>
+      {loading && <Loading/>}
     </>
   )
 }

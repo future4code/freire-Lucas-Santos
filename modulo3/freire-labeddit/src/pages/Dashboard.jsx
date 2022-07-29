@@ -7,6 +7,7 @@ import { DashboardHeader } from "../components/dashboard/DashboardHeader"
 import { DashboardCard } from "../components/dashboard/DashboardCard"
 import { DashboardNewPost } from "../components/dashboard/DashboardNewPost"
 import { MdOutlinePostAdd } from "react-icons/md"
+import { Loading } from "../components/Loading"
 
 const Section = styled.section`
   width: 100%;
@@ -37,24 +38,34 @@ const Button = styled.button`
   svg {font-size:3.5em}
 `
 export const Dashboard = () => {
-  const [posts, setPosts] = useState([])
-  const [trigger, setTrigger] = useState(false)
+  const [posts, setPosts] = useState([]);
+  const [reloadCount, setReloadCount] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [newPostTrigger, setNewPostTrigger] = useState(false);
+  const [page, setPage] = useState(1);
+  const [size, setSize] = useState(20);
+  const token = localStorage.getItem("tknLabEddit"); 
   
-  useEffect(() => {
-    const token = localStorage.getItem("tknLabEddit");
-    
+  //Pega os 10 posts a primeira vez
+  useEffect(() => {  
     const getPosts = async () => {
-      await axios.get(`${BaseUrl}/posts`, {headers: {...Headers, Authorization: token}})
+      setLoading(true);
+      await axios.get(`${BaseUrl}/posts/`, {headers: {...Headers, Authorization: token}})
       .then(response => {
-        // console.log(response.data)
-        setPosts(response.data)        
+        setPosts(response.data);
+        setLoading(false);   
       })
       .catch(error => {
-        
+        alert("Erro ao carregar posts")
       })
     }
     getPosts();
-  }, [])
+  }, []);
+  //
+
+  // setTimeout(() => {
+  //   setReloadCount(reloadCount + 1);
+  // }, 120000);
   
   return (
     <>
@@ -65,14 +76,16 @@ export const Dashboard = () => {
           {posts.map(post => (
             <DashboardCard key={post.id} post={post} />
           ))}
-        </ul>        
+        </ul>  
+        <br />   
       </Section>
 
-      <Button onClick={() => setTrigger(true)}>
+      <Button onClick={() => setNewPostTrigger(true)}>
         <MdOutlinePostAdd />
       </Button>
 
-      {trigger && <DashboardNewPost setTrigger={setTrigger} />}
+      {newPostTrigger && <DashboardNewPost setNewPostTrigger={setNewPostTrigger} />}
+      {loading && <Loading />}
     </>
   )
 }
