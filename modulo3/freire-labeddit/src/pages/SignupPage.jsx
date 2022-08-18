@@ -8,7 +8,7 @@ import { Loading } from "../components/Loading"
 
 const Section = styled.section`
   position: fixed;
-  top: 25%;
+  top: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +27,6 @@ const Section = styled.section`
     justify-content: center;
     width: 100%;
     height: 100%;
-    color: ${Colors.white};
     background-image: linear-gradient(240deg, ${Colors.purple}, ${Colors.pink});
   }
 `
@@ -58,6 +57,7 @@ const Button = styled.button`
   margin-top: 0.25em;
   padding: 0.4em;
   background-image: linear-gradient(240deg, ${Colors.purple}, ${Colors.pink});
+  color: ${Colors.white};
   font-size: min(2em, 8vw);
   font-weight: bold;
   text-align: center;
@@ -80,10 +80,9 @@ const A = styled.a`
     text-decoration: underline;
   }
 `
-
-export const LoginPage = () => {
-  const [form, setForm] = useState({email:"", password:""})
-  const [loading, setLoading] = useState(false);
+export const SignupPage = () => {
+  const [form, setForm] = useState({username:"", email:"", password:""})
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -95,45 +94,41 @@ export const LoginPage = () => {
   //     localStorage.removeItem("tknLabEddit")
   //   }
   // }, [])
-
-  const clickToSignup = () => {
-    navigate("/signup");
+  const clickToLogin = () => {
+    navigate("/login");
   }
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     setLoading(true);
-
-    await axios.post(`${BaseUrl}/users/login`, form, Headers)
+    await axios.post(`${BaseUrl}/users/signup`, form, Headers)
     .then(response => {
-      localStorage.setItem("tknLabEddit", response.data.token)
       setLoading(false);
-      navigate("/dashboard")
+      alert("Cadastro realizado com sucesso!")
+      navigate("/login")
     })
     .catch(error => {
       setLoading(false);
       alert("Deu ruim!");
     })
   }
-
   return (
-    <>    
-      <Section>
-        <div style={{height: "fit-content",boxShadow: "0 0 0.5em black"}}>
-          <H1>Login</H1>
-        </div>
-        <br />
-        <form action="" onSubmit={handleLogin} style={{backgroundImage:"none"}}>
-          <Input placeholder="E-mail" type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})}
-            required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="E-mail inválido!"/>
-          <Input placeholder="Senha" type="password" value={form.password} onChange={e => setForm({...form, password: e.target.value})}
-            required title="A senha deve entre 8 e 30 caracteres" minLength="8" maxLength="30"/>
-          <Button>Entrar</Button>
-        </form>
-        <div style={{backgroundImage:"none"}}>
-          <A onClick={clickToSignup}>Não tem uma conta? Faça o cadastro!</A>
-        </div>
-      </Section>
-      {loading && <Loading />}  
-    </>
+    <Section>
+      <div style={{height: "fit-content", backgroundColor: Colors.pink, boxShadow: "0 0 0.5em black"}}>
+        <H1>Cadastro</H1>
+      </div>
+      <br />
+      <form action="" onSubmit={handleSignup} style={{backgroundImage:"none"}}>
+        <Input placeholder="Nome" type="text" value={form.username} onChange={e => setForm({...form, username: e.target.value})}
+          required pattern="[a-zA-Z\s]+" title="O nome não pode ficar vazio!"/>
+        <Input placeholder="E-mail" type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})}
+          required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="E-mail inválido!"/>
+        <Input placeholder="Senha" type="password" value={form.password} onChange={e => setForm({...form, password: e.target.value})}
+          required title="A senha deve entre 8 e 30 caracteres" minLength="8" maxLength="30"/>
+        <Button>Entrar</Button>
+      </form>
+      <div style={{backgroundImage:"none"}}>
+        <A onClick={clickToLogin}>Já tem uma conta? Faça o login!</A>
+      </div>
+    </Section>  
   )
 }
