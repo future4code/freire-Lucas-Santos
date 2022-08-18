@@ -1,0 +1,3 @@
+npm init (cria o package.json)
+node index.js (executa oq foi feito no index.js)
+process.argv[] (pega qualquer referência passada junto do comando)
